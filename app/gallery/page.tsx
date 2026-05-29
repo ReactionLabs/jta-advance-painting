@@ -1,10 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { Card, CardContent } from '@/components/ui/card';
 import {
   X,
   ChevronLeft,
@@ -23,92 +22,82 @@ interface GalleryImage {
   alt: string;
   category: 'interior' | 'exterior' | 'commercial' | 'residential';
   title: string;
+  width: number;
+  height: number;
 }
 
 const galleryImages: GalleryImage[] = [
   {
     id: 1,
-    src: '/gallery/interior-living-room.jpg',
-    alt: 'Modern living room with neutral tones',
+    src: '/project-images/jta_work_1.jpg',
+    alt: 'Interior painting project - living room with fresh neutral tones',
     category: 'interior',
     title: 'Living Room Transformation',
+    width: 800,
+    height: 600,
   },
   {
     id: 2,
-    src: '/gallery/exterior-home.jpg',
-    alt: ' craftsman-style home with new exterior paint',
+    src: '/project-images/jta_work_2.jpg',
+    alt: 'Exterior home painting - complete exterior makeover',
     category: 'exterior',
-    title: 'Curb Appeal Upgrade',
+    title: 'Full Home Exterior',
+    width: 800,
+    height: 600,
   },
   {
     id: 3,
-    src: '/gallery/kitchen-cabinets.jpg',
-    alt: 'Freshly painted kitchen cabinets',
+    src: '/project-images/jta_work_3.jpg',
+    alt: 'Interior project - bedroom with modern finish',
     category: 'interior',
-    title: 'Kitchen Cabinet Makeover',
+    title: 'Bedroom Refresh',
+    width: 800,
+    height: 600,
   },
   {
     id: 4,
-    src: '/gallery/commercial-office.jpg',
-    alt: 'Professional office space',
+    src: '/project-images/jta_work_4.jpg',
+    alt: 'Commercial painting - professional office space',
     category: 'commercial',
-    title: 'Office Building Repaint',
+    title: 'Office Repaint',
+    width: 800,
+    height: 600,
   },
   {
     id: 5,
-    src: '/gallery/bedroom-painting.jpg',
-    alt: 'Calm bedroom with soft blue walls',
+    src: '/project-images/jta_work_5.jpg',
+    alt: 'Interior painting - kitchen area with updated colors',
     category: 'interior',
-    title: 'Serene Bedroom Refresh',
+    title: 'Kitchen Update',
+    width: 800,
+    height: 600,
   },
   {
     id: 6,
-    src: '/gallery/deck-staining.jpg',
-    alt: 'Beautiful stained deck area',
+    src: '/project-images/jta_work_6.jpg',
+    alt: 'Exterior painting - complete home exterior project',
     category: 'exterior',
-    title: 'Deck Staining Project',
+    title: 'Curb Appeal Upgrade',
+    width: 800,
+    height: 600,
   },
   {
     id: 7,
-    src: '/gallery/restaurant-paint.jpg',
-    alt: 'Elegant restaurant interior',
-    category: 'commercial',
-    title: 'Restaurant ambiance',
+    src: '/project-images/jta_work_7.jpg',
+    alt: 'Residential interior - living space transformation',
+    category: 'residential',
+    title: 'Residential Interior',
+    width: 800,
+    height: 600,
   },
   {
     id: 8,
-    src: '/gallery/bathroom-renovation.jpg',
-    alt: 'Modern bathroom with fresh paint',
+    src: '/project-images/jta_work_8.jpg',
+    alt: 'Interior project - complete room makeover',
     category: 'interior',
-    title: 'Bathroom Transformation',
-  },
-  {
-    id: 9,
-    src: '/gallery/fence-staining.jpg',
-    alt: 'Beautifully stained wooden fence',
-    category: 'exterior',
-    title: 'Fence Staining',
-  },
-  {
-    id: 10,
-    src: '/gallery/dining-room.jpg',
-    alt: 'Elegant dining room in warm tones',
-    category: 'interior',
-    title: 'Dining Room Elegance',
-  },
-  {
-    id: 11,
-    src: '/gallery/warehouse.jpg',
-    alt: 'Clean warehouse interior',
-    category: 'commercial',
-    title: 'Warehouse Facility',
-  },
-  {
-    id: 12,
-    src: '/gallery/home-exterior.jpg',
-    alt: 'Completed home exterior project',
-    category: 'residential',
-    title: 'Full Home Exterior',
+    title: 'Room Makeover',
+    width: 800,
+    height: 600,
   },
 ];
 
@@ -123,6 +112,7 @@ const categories = [
 export default function GalleryPage() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [isLoaded, setIsLoaded] = useState(false);
 
   const filteredImages =
     selectedCategory === 'all'
@@ -133,30 +123,55 @@ export default function GalleryPage() {
     ? filteredImages.findIndex((img) => img.id === selectedImage.id)
     : -1;
 
-  const handlePrevious = () => {
+  useEffect(() => {
+    setIsLoaded(true);
+  }, []);
+
+  const handlePrevious = useCallback(() => {
     if (currentIndex > 0) {
       setSelectedImage(filteredImages[currentIndex - 1]);
     }
-  };
+  }, [currentIndex, filteredImages]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     if (currentIndex < filteredImages.length - 1) {
       setSelectedImage(filteredImages[currentIndex + 1]);
     }
-  };
+  }, [currentIndex, filteredImages]);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      setSelectedImage(null);
-    } else if (e.key === 'ArrowLeft') {
-      handlePrevious();
-    } else if (e.key === 'ArrowRight') {
-      handleNext();
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!selectedImage) return;
+      
+      if (e.key === 'Escape') {
+        setSelectedImage(null);
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        handlePrevious();
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        handleNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [selectedImage, handlePrevious, handleNext]);
+
+  // Prevent body scroll when lightbox is open
+  useEffect(() => {
+    if (selectedImage) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
-  };
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [selectedImage]);
 
   return (
-    <div className="flex flex-col" onKeyDown={handleKeyDown} tabIndex={-1}>
+    <div className={`flex flex-col transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
       {/* Hero Section */}
       <section className="relative flex min-h-[300px] flex-col items-center justify-center bg-gradient-to-b from-muted to-background px-4 py-16 text-center">
         <div className="mx-auto max-w-3xl space-y-4">
@@ -183,7 +198,7 @@ export default function GalleryPage() {
                 variant={selectedCategory === category.id ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setSelectedCategory(category.id)}
-                className="gap-2"
+                className="gap-2 transition-all duration-200"
               >
                 <category.icon className="size-4" aria-hidden="true" />
                 {category.label}
@@ -193,36 +208,50 @@ export default function GalleryPage() {
         </div>
       </section>
 
-      {/* Gallery Grid */}
+      {/* Masonry Gallery Grid */}
       <section className="flex-1 px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredImages.map((image) => (
-              <Card
+          {/* Masonry layout using CSS columns */}
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+            {filteredImages.map((image, index) => (
+              <div
                 key={image.id}
-                className="group cursor-pointer overflow-hidden transition-shadow hover:shadow-lg"
+                className="break-inside-avoid group relative cursor-pointer overflow-hidden rounded-lg bg-muted transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                 onClick={() => setSelectedImage(image)}
+                style={{
+                  animationDelay: `${index * 50}ms`,
+                }}
               >
-                <div className="relative aspect-[4/3] overflow-hidden bg-muted">
-                  {/* Placeholder for images - in production, replace with actual Image component */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-muted to-muted/50">
-                    <PaintBucket className="size-12 text-muted-foreground/30" />
-                  </div>
-                  {/* Overlay on hover */}
-                  <div className="absolute inset-0 flex items-center justify-center bg-black/0 transition-colors group-hover:bg-black/40">
-                    <Maximize2
-                      className="size-8 text-white opacity-0 transition-opacity group-hover:opacity-100"
-                      aria-hidden="true"
-                    />
+                <div className="relative w-full">
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    width={image.width}
+                    height={image.height}
+                    className="h-auto w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/0 transition-all duration-300 group-hover:bg-black/50">
+                    <div className="flex flex-col items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                      <Maximize2
+                        className="size-10 text-white drop-shadow-lg"
+                        aria-hidden="true"
+                      />
+                      <span className="rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm">
+                        View Project
+                      </span>
+                    </div>
                   </div>
                 </div>
-                <CardContent className="p-4">
-                  <p className="font-medium">{image.title}</p>
-                  <p className="mt-1 text-sm capitalize text-muted-foreground">
+                {/* Card info */}
+                <div className="absolute bottom-0 left-0 right-0 translate-y-full bg-gradient-to-t from-black/80 to-transparent p-4 transition-transform duration-300 group-hover:translate-y-0">
+                  <p className="font-medium text-white">{image.title}</p>
+                  <p className="mt-1 text-sm capitalize text-white/70">
                     {image.category}
                   </p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
 
@@ -240,7 +269,7 @@ export default function GalleryPage() {
       {/* Lightbox Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
           onClick={() => setSelectedImage(null)}
           role="dialog"
           aria-modal="true"
@@ -248,7 +277,7 @@ export default function GalleryPage() {
         >
           {/* Close button */}
           <button
-            className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-2 text-white transition-colors hover:bg-white/20"
+            className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 hover:scale-110"
             onClick={() => setSelectedImage(null)}
             aria-label="Close gallery"
           >
@@ -258,7 +287,7 @@ export default function GalleryPage() {
           {/* Navigation buttons */}
           {currentIndex > 0 && (
             <button
-              className="absolute left-4 z-10 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20"
+              className="absolute left-4 z-10 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 hover:scale-110"
               onClick={(e) => {
                 e.stopPropagation();
                 handlePrevious();
@@ -270,7 +299,7 @@ export default function GalleryPage() {
           )}
           {currentIndex < filteredImages.length - 1 && (
             <button
-              className="absolute right-4 z-10 rounded-full bg-white/10 p-3 text-white transition-colors hover:bg-white/20 lg:right-[calc(50%-400px)]"
+              className="absolute right-4 z-10 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 hover:scale-110 lg:right-[calc(50%-450px)]"
               onClick={(e) => {
                 e.stopPropagation();
                 handleNext();
@@ -283,14 +312,19 @@ export default function GalleryPage() {
 
           {/* Image container */}
           <div
-            className="relative mx-4 max-w-5xl"
+            className="relative mx-4 max-w-6xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative aspect-[16/10] overflow-hidden rounded-lg bg-muted">
-              {/* Placeholder for lightbox image */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <PaintBucket className="size-24 text-muted-foreground/20" />
-              </div>
+            <div className="relative overflow-hidden rounded-lg bg-muted">
+              <Image
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                width={selectedImage.width}
+                height={selectedImage.height}
+                className="h-auto max-h-[80vh] w-full object-contain"
+                sizes="100vw"
+                priority
+              />
             </div>
 
             {/* Image info */}
@@ -300,6 +334,9 @@ export default function GalleryPage() {
               </p>
               <p className="mt-1 text-sm text-white/70">
                 {currentIndex + 1} of {filteredImages.length}
+              </p>
+              <p className="mt-1 text-xs text-white/50 capitalize">
+                {selectedImage.category} • Use arrow keys to navigate
               </p>
             </div>
           </div>
