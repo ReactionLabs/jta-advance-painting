@@ -15,7 +15,7 @@ const quickLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About Us" },
   { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/gallery", label: "Portfolio" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];
@@ -24,19 +24,19 @@ const contactInfo = [
   {
     icon: Phone,
     label: "Phone",
-    value: "(234) 567-890",
-    href: "tel:+1234567890",
+    value: "813-392-8301 / 813-392-8128",
+    href: "tel:+18133928301",
   },
   {
     icon: Mail,
     label: "Email",
-    value: "info@jtaadvancepainting.com",
-    href: "mailto:info@jtaadvancepainting.com",
+    value: "service@jtaadvancepainting.com",
+    href: "mailto:service@jtaadvancepainting.com",
   },
   {
     icon: MapPin,
     label: "Address",
-    value: "123 Painting St, City, State 12345",
+    value: "9225 Bay Plaza Blvd Suite 417 PMB 1205 Tampa FL 33619",
     href: "https://maps.google.com",
   },
 ];
