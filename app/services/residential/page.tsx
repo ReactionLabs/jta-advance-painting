@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
@@ -36,7 +36,7 @@ const residentialServices = [
     icon: PaintBucket,
     title: 'Exterior Painting',
     description:
-      'Protect and enhance your home\'s curb appeal with our weather-resistant exterior painting services. We use premium coatings built to last.',
+      "Protect and enhance your home's curb appeal with our weather-resistant exterior painting services. We use premium coatings built to last.",
     features: [
       'Weather-resistant coatings',
       'Surface preparation & priming',
@@ -150,33 +150,42 @@ const testimonials = [
 export default function ResidentialPage() {
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative flex min-h-[400px] flex-col items-center justify-center bg-gradient-to-b from-muted to-background px-4 py-20 text-center">
-        <div className="mx-auto max-w-3xl space-y-6">
-          <Badge variant="secondary" className="mb-2">
-            Residential Painting
-          </Badge>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Transform Your Home with
-            <span className="block text-primary">Expert Painting</span>
-          </h1>
-          <p className="text-lg text-muted-foreground sm:text-xl">
-            From single room refreshes to complete home transformations, we
-            deliver exceptional results that you&apos;ll love coming home to.
-          </p>
-          <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
-            <Link href="/contact">
-              <Button size="lg">
-                Get Your Free Quote
-                <ArrowRight className="ml-2 size-4" aria-hidden="true" />
-              </Button>
-            </Link>
-            <a href="tel:+1234567890">
-              <Button variant="outline" size="lg">
-                <Phone className="mr-2 size-4" aria-hidden="true" />
-                Call (234) 567-890
-              </Button>
-            </a>
+      {/* Hero */}
+      <section className="relative h-[500px]">
+        <Image
+          src="/project-images/jta_work_6.jpg"
+          alt="JTA residential painting project"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/55 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="relative z-10 flex h-full items-end pb-14 px-6 md:px-12 max-w-7xl mx-auto">
+          <div>
+            <Badge variant="secondary" className="mb-3 text-xs">
+              Residential Painting
+            </Badge>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              Transform Your Home with Expert Painting
+            </h1>
+            <p className="text-lg text-white/90 max-w-2xl">
+              From single room refreshes to complete home transformations, we
+              deliver exceptional results that you&apos;ll love coming home to.
+            </p>
+            <div className="flex gap-3 mt-6">
+              <Link href="/contact">
+                <Button size="lg">
+                  Get Your Free Quote
+                  <ArrowRight className="ml-2 size-4" aria-hidden="true" />
+                </Button>
+              </Link>
+              <a href="tel:813-392-8301">
+                <Button variant="outline" size="lg" className="bg-white/10 border-white/30 text-white hover:bg-white/20">
+                  <Phone className="mr-2 size-4" aria-hidden="true" />
+                  813-392-8301
+                </Button>
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -302,6 +311,11 @@ export default function ResidentialPage() {
             <h2 className="text-3xl font-bold tracking-tight">
               What Our Homeowners Say
             </h2>
+            <p className="mt-2 text-muted-foreground">
+              <Link href="/testimonials" className="underline underline-offset-2 hover:text-primary">
+                Read all reviews →
+              </Link>
+            </p>
           </div>
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((testimonial) => (
@@ -320,7 +334,7 @@ export default function ResidentialPage() {
                     &ldquo;{testimonial.quote}&rdquo;
                   </p>
                   <div>
-                    <p className="font-semibold">{testimonial.author}</p>
+                    <p className="font-semibold text-sm">{testimonial.author}</p>
                     <p className="text-xs text-muted-foreground">
                       {testimonial.location}
                     </p>
@@ -349,16 +363,17 @@ export default function ResidentialPage() {
                 className="bg-background text-foreground hover:bg-background/90"
               >
                 Schedule Your Consultation
+                <ArrowRight className="ml-2 size-4" aria-hidden="true" />
               </Button>
             </Link>
-            <a href="tel:+1234567890">
+            <a href="tel:813-392-8301">
               <Button
                 variant="outline"
                 size="lg"
                 className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
               >
                 <Phone className="mr-2 size-4" aria-hidden="true" />
-                Call (234) 567-890
+                813-392-8301
               </Button>
             </a>
           </div>

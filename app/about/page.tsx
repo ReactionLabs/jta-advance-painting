@@ -1,6 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Separator } from "@/components/ui/separator";
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Separator } from '@/components/ui/separator';
 import {
   ShieldCheck,
   Star,
@@ -10,74 +11,86 @@ import {
   ThumbsUp,
   PaintBucket,
   CheckCircle,
-} from "lucide-react";
-import Link from "next/link";
+} from 'lucide-react';
+import Link from 'next/link';
 
 const stats = [
-  { value: "15+", label: "Years Experience" },
-  { value: "500+", label: "Projects Completed" },
-  { value: "100%", label: "Customer Satisfaction" },
-  { value: "5-Star", label: "Average Rating" },
+  { value: '15+', label: 'Years Experience' },
+  { value: '500+', label: 'Projects Completed' },
+  { value: '100%', label: 'Customer Satisfaction' },
+  { value: '5-Star', label: 'Average Rating' },
 ];
 
 const values = [
   {
     icon: ShieldCheck,
-    title: "Integrity & Trust",
+    title: 'Integrity & Trust',
     description:
       "We're fully licensed and insured, providing you peace of mind on every project. Our team is background-checked and trained to uphold the highest standards.",
   },
   {
     icon: Star,
-    title: "Exceptional Quality",
+    title: 'Exceptional Quality',
     description:
-      "We use only premium paints and proven techniques to deliver flawless finishes. Every detail matters, from surface preparation to the final coat.",
+      'We use only premium paints and proven techniques to deliver flawless finishes. Every detail matters, from surface preparation to the final coat.',
   },
   {
     icon: Clock,
-    title: "Reliability",
+    title: 'Reliability',
     description:
-      "We show up on time, communicate clearly, and complete projects as promised. Your schedule matters to us—we work efficiently without cutting corners.",
+      'We show up on time, communicate clearly, and complete projects as promised. Your schedule matters to us—we work efficiently without cutting corners.',
   },
   {
     icon: Award,
-    title: "Professionalism",
+    title: 'Professionalism',
     description:
-      "Our crew is courteous, uniformed, and trained in proper application methods. We treat your property with respect and leave it clean after every job.",
+      'Our crew is courteous, uniformed, and trained in proper application methods. We treat your property with respect and leave it clean after every job.',
   },
 ];
 
 const teamValues = [
-  "Free color consultations to help you choose the perfect palette",
-  "Detailed written quotes with no hidden fees",
-  "Decades of combined painting experience",
-  "Continuous training in latest techniques and products",
-  "Eco-friendly paint options available",
-  "Complete cleanup and final walkthrough on every project",
+  'Free color consultations to help you choose the perfect palette',
+  'Detailed written quotes with no hidden fees',
+  'Decades of combined painting experience',
+  'Continuous training in latest techniques and products',
+  'Eco-friendly paint options available',
+  'Complete cleanup and final walkthrough on every project',
 ];
 
 const certifications = [
-  "Fully Licensed & Bonded",
-  "Workers Compensation Insurance",
-  "Lead-Safe Certified",
-  "BBB Accredited Business",
+  'Fully Licensed & Bonded',
+  'Workers Compensation Insurance',
+  'Lead-Safe Certified',
+  'BBB Accredited Business',
 ];
 
 function AboutPage() {
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative flex min-h-[400px] flex-col items-center justify-center bg-gradient-to-b from-muted to-background px-4 py-20 text-center">
-        <div className="mx-auto max-w-3xl space-y-6">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            About{" "}
-            <span className="text-primary">JTA Advance Painting</span>
-          </h1>
-          <p className="text-lg text-muted-foreground sm:text-xl">
-            For over 15 years, we've been transforming homes and businesses
-            across the region with exceptional painting services built on
-            integrity, quality, and customer satisfaction.
-          </p>
+      {/* Hero */}
+      <section className="relative h-[500px]">
+        <Image
+          src="/project-images/jta_work_2.jpg"
+          alt="JTA Advance Painting team at work"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/55 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="relative z-10 flex h-full items-end pb-14 px-6 md:px-12 max-w-7xl mx-auto">
+          <div>
+            <p className="text-sm font-medium text-white/80 uppercase tracking-widest mb-3">
+              About Us
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              About JTA Advance Painting
+            </h1>
+            <p className="text-lg text-white/90 max-w-2xl">
+              For over 15 years, we've been transforming homes and businesses
+              across Tampa Bay with exceptional painting services built on
+              integrity, quality, and customer satisfaction.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -260,9 +273,9 @@ function AboutPage() {
                     <Link href="/contact">
                       <Button className="w-full">Request Free Estimate</Button>
                     </Link>
-                    <a href="tel:+1234567890">
+                    <a href="tel:813-392-8301">
                       <Button variant="outline" className="w-full">
-                        Call (234) 567-890
+                        Call 813-392-8301
                       </Button>
                     </a>
                   </div>
@@ -287,7 +300,7 @@ function AboutPage() {
             <Link href="/contact">
               <Button size="lg">Get a Free Quote</Button>
             </Link>
-            <Link href="/portfolio">
+            <Link href="/gallery">
               <Button variant="outline" size="lg">
                 View Our Portfolio
               </Button>

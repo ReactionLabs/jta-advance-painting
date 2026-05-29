@@ -1,6 +1,7 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+import Image from 'next/image';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Badge } from '@/components/ui/badge';
 import {
   PaintBucket,
   Home,
@@ -13,141 +14,153 @@ import {
   CheckCircle,
   Star,
   ArrowRight,
-} from "lucide-react";
-import Link from "next/link";
+} from 'lucide-react';
+import Link from 'next/link';
 
 const mainServices = [
   {
     icon: Home,
-    title: "Interior Painting",
+    title: 'Interior Painting',
     description:
-      "Transform your living spaces with our expert interior painting services. From accent walls to complete home repaints, we deliver flawless results that reflect your style.",
+      'Transform your living spaces with our expert interior painting services. From accent walls to complete home repaints, we deliver flawless results that reflect your style.',
     features: [
-      "Complete wall preparation and priming",
-      "Premium interior paints from trusted brands",
-      "Trim, baseboards, and door painting",
-      "Ceiling painting and texture repairs",
-      "Color consultation included",
-      "Dust-free sanding and cleanup",
+      'Complete wall preparation and priming',
+      'Premium interior paints from trusted brands',
+      'Trim, baseboards, and door painting',
+      'Ceiling painting and texture repairs',
+      'Color consultation included',
+      'Dust-free sanding and cleanup',
     ],
-    bestFor: ["Living Rooms", "Bedrooms", "Kitchens", "Bathrooms", "Offices"],
+    bestFor: ['Living Rooms', 'Bedrooms', 'Kitchens', 'Bathrooms', 'Offices'],
   },
   {
     icon: Building,
-    title: "Exterior Painting",
+    title: 'Exterior Painting',
     description:
-      "Protect and beautify your home's exterior with our weather-resistant paints and professional application. We stand behind our work with excellent warranty coverage.",
+      'Protect and beautify your home\'s exterior with our weather-resistant paints and professional application. We stand behind our work with excellent warranty coverage.',
     features: [
-      "Surface power washing and cleaning",
-      "Crack and hole repairs",
-      "Moisture and mildew treatments",
-      "Premium exterior paints Built to last",
-      "Soffit, fascia, and gutter painting",
-      "Weather-dependent scheduling",
+      'Surface power washing and cleaning',
+      'Crack and hole repairs',
+      'Moisture and mildew treatments',
+      'Premium exterior paints built to last',
+      'Soffit, fascia, and gutter painting',
+      'Weather-dependent scheduling',
     ],
-    bestFor: ["Homes", "Townhouses", "Condominiums", "Apartment Buildings"],
+    bestFor: ['Homes', 'Townhouses', 'Condominiums', 'Apartment Buildings'],
   },
   {
     icon: Store,
-    title: "Commercial Painting",
+    title: 'Commercial Painting',
     description:
-      "Minimize disruption to your business with our efficient commercial painting solutions. We work around your schedule to deliver pristine results without interrupting operations.",
+      'Minimize disruption to your business with our efficient commercial painting solutions. We work around your schedule to deliver pristine results without interrupting operations.',
     features: [
-      "After-hours and weekend scheduling",
-      "Minimal disruption to operations",
-      "Large-scale project capability",
-      "Multiple surface types handled",
-      "Safety and compliance compliance",
-      "Property management ready",
+      'After-hours and weekend scheduling',
+      'Minimal disruption to operations',
+      'Large-scale project capability',
+      'Multiple surface types handled',
+      'Safety and compliance',
+      'Property management ready',
     ],
-    bestFor: ["Office Buildings", "Retail Spaces", "Warehouses", "Medical Facilities", "Restaurants"],
+    bestFor: ['Office Buildings', 'Retail Spaces', 'Warehouses', 'Medical Facilities', 'Restaurants'],
   },
   {
     icon: Home,
-    title: "Residential Painting",
+    title: 'Residential Painting',
     description:
-      "From single rooms to complete home repaints, we deliver exceptional quality and attention to detail. Every project receives our full commitment to excellence.",
+      'From single rooms to complete home repaints, we deliver exceptional quality and attention to detail. Every project receives our full commitment to excellence.',
     features: [
-      "Whole-house interior repaints",
-      "Cabinet painting and refinishing",
-      "Garage floor coatings",
-      "Deck and fence staining",
-      "New construction painting",
-      "Renovation updates",
+      'Whole-house interior repaints',
+      'Cabinet painting and refinishing',
+      'Garage floor coatings',
+      'Deck and fence staining',
+      'New construction painting',
+      'Renovation updates',
     ],
-    bestFor: ["Single-Family Homes", "Townhomes", "Condos", "New Builds", "Renovations"],
+    bestFor: ['Single-Family Homes', 'Townhomes', 'Condos', 'New Builds', 'Renovations'],
   },
 ];
 
 const additionalServices = [
   {
     icon: Brush,
-    title: "Cabinet Painting",
+    title: 'Cabinet Painting',
     description:
-      "Give your kitchen or bathroom cabinets a fresh, modern look without the cost of replacement. Our expert refinishing restores and updates cabinetry beautifully.",
+      'Give your kitchen or bathroom cabinets a fresh, modern look without the cost of replacement. Our expert refinishing restores and updates cabinetry beautifully.',
   },
   {
     icon: Ruler,
-    title: "Drywall Repair",
+    title: 'Drywall Repair',
     description:
-      "Before any painting begins, we ensure your walls are smooth and ready. Our full-service drywall repair fixes cracks, holes, and water damage.",
+      'Before any painting begins, we ensure your walls are smooth and ready. Our full-service drywall repair fixes cracks, holes, and water damage.',
   },
   {
     icon: PaintBucket,
-    title: "Deck & Fence Staining",
+    title: 'Deck & Fence Staining',
     description:
-      " Protect and enhance your outdoor living spaces with our professional staining services. We use weather-resistant stains Built to withstand the elements.",
+      'Protect and enhance your outdoor living spaces with our professional staining services. We use weather-resistant stains built to withstand the elements.',
   },
   {
     icon: ShieldCheck,
-    title: "Lead-Safe Certified",
+    title: 'Lead-Safe Certified',
     description:
-      "For older homes, we offer lead-safe painting services certified to federal standards. Your family's safety is our priority.",
+      'For older homes, we offer lead-safe painting services certified to federal standards. Your family\'s safety is our priority.',
   },
 ];
 
 const whyChooseUs = [
   {
     icon: Clock,
-    title: "On-Time Guarantee",
+    title: 'On-Time Guarantee',
     description:
-      "We respect your time. Projects are scheduled and completed as promised, with clear communication every step of the way.",
+      'We respect your time. Projects are scheduled and completed as promised, with clear communication every step of the way.',
   },
   {
     icon: ShieldCheck,
-    title: "Quality Materials",
+    title: 'Quality Materials',
     description:
-      "We use only premium paints and materials from trusted manufacturers. Proper prep and premium products ensure lasting results.",
+      'We use only premium paints and materials from trusted manufacturers. Proper prep and premium products ensure lasting results.',
   },
   {
     icon: Star,
-    title: "5-Star Rated",
+    title: '5-Star Rated',
     description:
-      "Our customers consistently rate us 5 stars. Read their reviews and see why we're the most recommended painter in the area.",
+      'Our customers consistently rate us 5 stars. Read their reviews and see why we\'re the most recommended painter in the area.',
   },
   {
     icon: CheckCircle,
-    title: "Zero Surprises",
+    title: 'Zero Surprises',
     description:
-      "Our detailed quotes mean no hidden fees or unexpected charges. What we quote is what you pay—with few exceptions for scope changes you request.",
+      'Our detailed quotes mean no hidden fees or unexpected charges. What we quote is what you pay—with few exceptions for scope changes you request.',
   },
 ];
 
 function ServicesPage() {
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative flex min-h-[400px] flex-col items-center justify-center bg-gradient-to-b from-muted to-background px-4 py-20 text-center">
-        <div className="mx-auto max-w-3xl space-y-6">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Our{" "}
-            <span className="text-primary">Painting Services</span>
-          </h1>
-          <p className="text-lg text-muted-foreground sm:text-xl">
-            From interior refreshes to full exterior transformations, we provide
-            comprehensive painting solutions for residential and commercial
-            properties—backed by quality materials and expert craftsmanship.
-          </p>
+      {/* Hero */}
+      <section className="relative h-[500px]">
+        <Image
+          src="/project-images/jta_work_4.jpg"
+          alt="JTA painting project"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-black/55 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="relative z-10 flex h-full items-end pb-14 px-6 md:px-12 max-w-7xl mx-auto">
+          <div>
+            <p className="text-sm font-medium text-white/80 uppercase tracking-widest mb-3">
+              Our Services
+            </p>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4">
+              Professional Painting Services
+            </h1>
+            <p className="text-lg text-white/90 max-w-2xl">
+              From interior refreshes to full exterior transformations, we provide
+              comprehensive painting solutions for residential and commercial
+              properties — backed by quality materials and expert craftsmanship.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -190,7 +203,7 @@ function ServicesPage() {
                 <CardContent className="space-y-6">
                   <div>
                     <h4 className="mb-3 text-sm font-semibold uppercase tracking-wider text-muted-foreground">
-                      What's Included
+                      What&apos;s Included
                     </h4>
                     <ul className="grid gap-2 sm:grid-cols-2">
                       {service.features.map((feature) => (
@@ -307,28 +320,28 @@ function ServicesPage() {
           <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               {
-                step: "1",
-                title: "Contact Us",
+                step: '1',
+                title: 'Contact Us',
                 description:
-                  "Give us a call or fill out our online form. We'll respond within 24 hours to schedule a consultation.",
+                  'Give us a call or fill out our online form. We\'ll respond within 24 hours to schedule a consultation.',
               },
               {
-                step: "2",
-                title: "Free Estimate",
+                step: '2',
+                title: 'Free Estimate',
                 description:
-                  "We visit your property, discuss your vision, take measurements, and provide a detailed written quote.",
+                  'We visit your property, discuss your vision, take measurements, and provide a detailed written quote.',
               },
               {
-                step: "3",
-                title: "Professional Painting",
+                step: '3',
+                title: 'Professional Painting',
                 description:
-                  "Our team arrives on time, protects your belongings, and paints with precision and care.",
+                  'Our team arrives on time, protects your belongings, and paints with precision and care.',
               },
               {
-                step: "4",
-                title: "Final Walkthrough",
+                step: '4',
+                title: 'Final Walkthrough',
                 description:
-                  "We inspect every surface, address your questions, and ensure you're completely satisfied.",
+                  'We inspect every surface, address your questions, and ensure you\'re completely satisfied.',
               },
             ].map((item) => (
               <Card key={item.step}>
@@ -364,15 +377,16 @@ function ServicesPage() {
                 className="bg-background text-foreground hover:bg-background/90"
               >
                 Get Free Estimate
+                <ArrowRight className="ml-2 size-4" aria-hidden="true" />
               </Button>
             </Link>
-            <a href="tel:+1234567890">
+            <a href="tel:813-392-8301">
               <Button
                 size="lg"
                 variant="outline"
                 className="border-primary-foreground/30 bg-transparent text-primary-foreground hover:bg-primary-foreground/10"
               >
-                Call (234) 567-890
+                Call 813-392-8301
               </Button>
             </a>
           </div>

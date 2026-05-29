@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/services", label: "Services" },
-  { href: "/portfolio", label: "Portfolio" },
+  { href: "/gallery", label: "Gallery" },
   { href: "/testimonials", label: "Testimonials" },
   { href: "/contact", label: "Contact" },
 ];
@@ -41,11 +41,11 @@ function Navbar() {
         {/* Desktop CTA */}
         <div className="hidden md:flex md:items-center md:gap-4">
           <a
-            href="tel:+1234567890"
+            href="tel:813-392-8301"
             className="inline-flex h-8 items-center justify-center gap-1.5 rounded-lg border border-border bg-background px-2.5 text-sm font-medium whitespace-nowrap transition-colors hover:bg-muted hover:text-foreground"
           >
             <Phone className="size-4" aria-hidden="true" />
-            <span>(234) 567-890</span>
+            <span>813-392-8301</span>
           </a>
         </div>
 
@@ -82,11 +82,11 @@ function Navbar() {
             {/* Mobile CTA */}
             <div className="pt-4 border-t border-border">
               <a
-                href="tel:+1234567890"
+                href="tel:813-392-8301"
                 className="flex h-9 w-full items-center justify-center gap-2 rounded-lg border border-border bg-background px-2.5 text-sm font-medium whitespace-nowrap transition-colors hover:bg-muted hover:text-foreground"
               >
                 <Phone className="size-4" aria-hidden="true" />
-                <span>(234) 567-890</span>
+                <span>813-392-8301</span>
               </a>
             </div>
           </SheetContent>
