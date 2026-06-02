@@ -14,6 +14,7 @@ const sora = Sora({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://jtaadvancepainting.com"),
   title: {
     default: "JTA Advance Painting LLC | Professional Painters Tampa Bay",
     template: "%s | JTA Advance Painting LLC",
@@ -31,6 +32,11 @@ export const metadata: Metadata = {
     "Tampa Bay painters",
   ],
   authors: [{ name: "JTA Advance Painting LLC" }],
+  icons: {
+    icon: "/icon.png",
+    shortcut: "/favicon.ico",
+    apple: "/apple-icon.png",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -38,10 +44,19 @@ export const metadata: Metadata = {
     title: "JTA Advance Painting LLC | Professional Painters Tampa Bay",
     description:
       "Professional painting services for homes, businesses & communities throughout Tampa Bay.",
+    images: [
+      {
+        url: "/logo.png",
+        width: 1200,
+        height: 630,
+        alt: "JTA Advance Painting Brand Logo",
+      },
+    ],
   },
   twitter: {
     card: "summary_large_image",
     title: "JTA Advance Painting LLC | Professional Painters Tampa Bay",
+    images: ["/logo.png"],
   },
   robots: {
     index: true,
