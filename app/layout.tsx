@@ -5,6 +5,7 @@ import "./globals.css";
 
 import { Navbar } from "@/components/Layout/Navbar";
 import { Footer } from "@/components/Layout/Footer";
+import FloatingCTA from "@/components/FloatingCTA";
 
 const sora = Sora({
   variable: "--font-sans",
@@ -158,11 +159,12 @@ export default function RootLayout({
         />
       </head>
       <body
-        className={`${sora.variable} flex min-h-full flex-col antialiased font-sans`}
+        className={`${sora.variable} flex min-h-full flex-col antialiased font-sans pb-16 md:pb-0`}
       >
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <FloatingCTA />
       </body>
     </html>
   );
