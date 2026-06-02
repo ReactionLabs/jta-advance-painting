@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -14,7 +15,12 @@ import {
   Building2,
   Brush,
   Layers,
+  ArrowRight,
+  Phone,
+  Sparkles,
 } from 'lucide-react';
+import { cn } from '@/lib/utils';
+import { PaintSplatter } from '@/components/ui/PaintDecorations';
 
 interface GalleryImage {
   id: number;
@@ -171,19 +177,23 @@ export default function GalleryPage() {
   }, [selectedImage]);
 
   return (
-    <div className={`flex flex-col transition-opacity duration-500 ${isLoaded ? 'opacity-100' : 'opacity-0'}`}>
-      {/* Hero Section */}
-      <section className="relative flex min-h-[300px] flex-col items-center justify-center bg-gradient-to-b from-muted to-background px-4 py-16 text-center">
-        <div className="mx-auto max-w-3xl space-y-4">
-          <Badge variant="secondary" className="mb-2">
+    <div className={cn("flex flex-col bg-background text-foreground transition-opacity duration-500", isLoaded ? 'opacity-100' : 'opacity-0')}>
+      {/* Hero Section (Centered & Premium) */}
+      <section className="relative h-[380px] flex items-center justify-center bg-slate-950">
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 to-slate-900" />
+          <div className="absolute top-1/4 left-1/4 size-60 rounded-full bg-logo-yellow/10 blur-[100px] pointer-events-none" />
+          <div className="absolute bottom-1/4 right-1/4 size-72 rounded-full bg-logo-red/10 blur-[110px] pointer-events-none" />
+        </div>
+        <div className="relative z-10 flex flex-col items-center justify-center text-center px-4 max-w-4xl mx-auto">
+          <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-4 bg-primary/10 border border-primary/20 px-4 py-1.5 rounded-full backdrop-blur-md">
             Our Portfolio
-          </Badge>
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
+          </p>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
             Project Gallery
           </h1>
-          <p className="text-lg text-muted-foreground sm:text-xl">
-            Browse our collection of completed residential and commercial painting
-            projects.
+          <p className="text-lg text-slate-355 max-w-2xl leading-relaxed">
+            Browse our collection of completed residential and commercial painting projects across Tampa Bay.
           </p>
         </div>
       </section>
@@ -198,7 +208,7 @@ export default function GalleryPage() {
                 variant={selectedCategory === category.id ? 'default' : 'outline'}
                 size="sm"
                 onClick={() => setSelectedCategory(category.id)}
-                className="gap-2 transition-all duration-200"
+                className="gap-2 transition-all duration-200 rounded-xl"
               >
                 <category.icon className="size-4" aria-hidden="true" />
                 {category.label}
@@ -209,14 +219,14 @@ export default function GalleryPage() {
       </section>
 
       {/* Masonry Gallery Grid */}
-      <section className="flex-1 px-4 py-8 sm:px-6 lg:px-8">
+      <section className="flex-1 px-4 py-12 sm:px-6 lg:px-8 bg-background">
         <div className="mx-auto max-w-7xl">
           {/* Masonry layout using CSS columns */}
-          <div className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4">
+          <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
             {filteredImages.map((image, index) => (
               <div
                 key={image.id}
-                className="break-inside-avoid group relative cursor-pointer overflow-hidden rounded-lg bg-muted transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                className="break-inside-avoid group relative cursor-pointer overflow-hidden rounded-2xl bg-muted border border-border shadow-md transition-all duration-300 hover:-translate-y-1.5 hover:shadow-2xl"
                 onClick={() => setSelectedImage(image)}
                 style={{
                   animationDelay: `${index * 50}ms`,
@@ -232,22 +242,22 @@ export default function GalleryPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                   {/* Hover overlay */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/0 transition-all duration-300 group-hover:bg-black/50">
+                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-black/0 transition-all duration-300 group-hover:bg-slate-950/60">
                     <div className="flex flex-col items-center gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
                       <Maximize2
                         className="size-10 text-white drop-shadow-lg"
                         aria-hidden="true"
                       />
-                      <span className="rounded-full bg-white/20 px-3 py-1 text-sm font-medium text-white backdrop-blur-sm">
+                      <span className="rounded-full bg-white/20 border border-white/30 px-3.5 py-1 text-sm font-semibold text-white backdrop-blur-sm shadow-md">
                         View Project
                       </span>
                     </div>
                   </div>
                 </div>
                 {/* Card info */}
-                <div className="absolute bottom-0 left-0 right-0 translate-y-full bg-gradient-to-t from-black/80 to-transparent p-4 transition-transform duration-300 group-hover:translate-y-0">
-                  <p className="font-medium text-white">{image.title}</p>
-                  <p className="mt-1 text-sm capitalize text-white/70">
+                <div className="absolute bottom-0 left-0 right-0 translate-y-full bg-gradient-to-t from-slate-950/90 to-transparent p-6 transition-transform duration-300 group-hover:translate-y-0 z-10">
+                  <p className="font-bold text-white text-lg">{image.title}</p>
+                  <p className="mt-1 text-xs capitalize text-slate-300 font-semibold tracking-wider">
                     {image.category}
                   </p>
                 </div>
@@ -256,9 +266,9 @@ export default function GalleryPage() {
           </div>
 
           {filteredImages.length === 0 && (
-            <div className="flex flex-col items-center justify-center py-16 text-center">
-              <PaintBucket className="size-16 text-muted-foreground/30" />
-              <p className="mt-4 text-lg text-muted-foreground">
+            <div className="flex flex-col items-center justify-center py-24 text-center">
+              <PaintBucket className="size-16 text-muted-foreground/30 animate-bounce" />
+              <p className="mt-4 text-lg text-slate-500 font-medium">
                 No projects found in this category.
               </p>
             </div>
@@ -269,7 +279,7 @@ export default function GalleryPage() {
       {/* Lightbox Modal */}
       {selectedImage && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/95"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-slate-950/95 backdrop-blur-sm"
           onClick={() => setSelectedImage(null)}
           role="dialog"
           aria-modal="true"
@@ -277,7 +287,7 @@ export default function GalleryPage() {
         >
           {/* Close button */}
           <button
-            className="absolute right-4 top-4 z-10 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 hover:scale-110"
+            className="absolute right-4 top-4 z-10 rounded-full bg-slate-900/60 border border-slate-800 p-3 text-white transition-all hover:bg-slate-800 hover:scale-110 shadow-lg"
             onClick={() => setSelectedImage(null)}
             aria-label="Close gallery"
           >
@@ -287,7 +297,7 @@ export default function GalleryPage() {
           {/* Navigation buttons */}
           {currentIndex > 0 && (
             <button
-              className="absolute left-4 z-10 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 hover:scale-110"
+              className="absolute left-4 z-10 rounded-full bg-slate-900/60 border border-slate-800 p-3 text-white transition-all hover:bg-slate-800 hover:scale-110 shadow-lg"
               onClick={(e) => {
                 e.stopPropagation();
                 handlePrevious();
@@ -299,7 +309,7 @@ export default function GalleryPage() {
           )}
           {currentIndex < filteredImages.length - 1 && (
             <button
-              className="absolute right-4 z-10 rounded-full bg-white/10 p-3 text-white transition-all hover:bg-white/20 hover:scale-110 lg:right-[calc(50%-450px)]"
+              className="absolute right-4 z-10 rounded-full bg-slate-900/60 border border-slate-800 p-3 text-white transition-all hover:bg-slate-800 hover:scale-110 shadow-lg lg:right-[calc(50%-450px)]"
               onClick={(e) => {
                 e.stopPropagation();
                 handleNext();
@@ -312,54 +322,81 @@ export default function GalleryPage() {
 
           {/* Image container */}
           <div
-            className="relative mx-4 max-w-6xl"
+            className="relative mx-4 max-w-4xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="relative overflow-hidden rounded-lg bg-muted">
+            <div className="relative overflow-hidden rounded-2xl bg-muted border border-slate-800 shadow-2xl">
               <Image
                 src={selectedImage.src}
                 alt={selectedImage.alt}
                 width={selectedImage.width}
                 height={selectedImage.height}
-                className="h-auto max-h-[80vh] w-full object-contain"
+                className="h-auto max-h-[75vh] w-full object-contain"
                 sizes="100vw"
                 priority
               />
             </div>
 
             {/* Image info */}
-            <div className="mt-4 text-center">
-              <p className="text-lg font-medium text-white">
+            <div className="mt-6 text-center">
+              <p className="text-xl font-bold text-white">
                 {selectedImage.title}
               </p>
-              <p className="mt-1 text-sm text-white/70">
-                {currentIndex + 1} of {filteredImages.length}
+              <p className="mt-1 text-xs text-slate-400 font-semibold uppercase tracking-wider">
+                {currentIndex + 1} of {filteredImages.length} &bull; {selectedImage.category}
               </p>
-              <p className="mt-1 text-xs text-white/50 capitalize">
-                {selectedImage.category} • Use arrow keys to navigate
+              <p className="mt-2 text-xs text-slate-500 font-medium">
+                Use arrow keys or swipe to navigate
               </p>
             </div>
           </div>
         </div>
       )}
 
-      {/* CTA Section */}
-      <section className="bg-primary px-4 py-12 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-3xl text-center text-primary-foreground">
-          <h2 className="text-2xl font-bold tracking-tight">
+      {/* CTA Section (PREMIUM PAINT GRADIENT) */}
+      <section className="relative overflow-hidden px-4 py-20 sm:px-6 lg:px-8 rounded-3xl mx-4 my-8 shadow-2xl">
+        <div className="absolute inset-0 bg-gradient-to-r from-logo-red via-logo-orange to-logo-gold" />
+        <div className="absolute inset-0 opacity-15">
+          <svg
+            className="h-full w-full"
+            viewBox="0 0 100 100"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,50 Q25,30 50,50 T100,50 L100,100 L0,100 Z"
+              fill="currentColor"
+              className="text-white"
+            />
+          </svg>
+        </div>
+        <div className="absolute -right-10 -top-10 size-48 rounded-full bg-white/20 blur-3xl" />
+        <div className="absolute -bottom-10 -left-10 size-48 rounded-full bg-white/20 blur-3xl" />
+        
+        <div className="relative z-10 mx-auto max-w-3xl text-center text-white">
+          <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
             Like What You See?
           </h2>
-          <p className="mt-3 text-primary-foreground/80">
-            Let&apos;s discuss how we can transform your space with the same
-            quality and care.
+          <p className="mt-4 text-lg text-white/90 max-w-xl mx-auto">
+            Let&apos;s discuss how we can transform your space with the same premium quality and care.
           </p>
-          <div className="mt-6">
-            <a href="/contact">
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Link href="/contact" className="w-full sm:w-auto">
               <Button
                 size="lg"
-                className="bg-background text-foreground hover:bg-background/90"
+                className="bg-white text-slate-950 font-bold px-8 py-6 rounded-xl transition-all hover:scale-105 hover:bg-slate-50 hover:shadow-xl w-full sm:w-auto"
               >
-                Start Your Project
+                Request Free Quote
+                <ArrowRight className="ml-2 size-4" />
+              </Button>
+            </Link>
+            <a href="tel:813-392-8301" className="w-full sm:w-auto">
+              <Button
+                variant="outline"
+                size="lg"
+                className="border-white/30 bg-transparent text-white font-bold px-8 py-6 rounded-xl transition-all hover:bg-white/10 w-full sm:w-auto"
+              >
+                <Phone className="mr-2 size-4" />
+                Call 813-392-8301
               </Button>
             </a>
           </div>

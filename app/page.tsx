@@ -25,13 +25,13 @@ import {
   FileCheck2,
   ThumbsUp,
   MapPin,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 // Custom SVG paint decorators & interactive widgets
-import { PaintBrushStroke, PaintSplatter } from "@/components/ui/PaintDecorations";
-import BeforeAfterSlider from "@/components/BeforeAfterSlider";
-import ColorVisualizer from "@/components/ColorVisualizer";
+import { PaintSplatter } from "@/components/ui/PaintDecorations";
 
 // Count-up counter component triggered on viewport visibility
 function StatCounter({ end, suffix = "" }: { end: number; suffix?: string }) {
@@ -159,6 +159,7 @@ const testimonials = [
     author: "Marcus Johnson",
     role: "Local Guide",
     date: "3 weeks ago",
+    location: "Brandon",
   },
   {
     quote:
@@ -166,6 +167,7 @@ const testimonials = [
     author: "Michelle Torres",
     role: "Business Owner",
     date: "2 months ago",
+    location: "Tampa",
   },
   {
     quote:
@@ -173,12 +175,88 @@ const testimonials = [
     author: "Amanda Roberts",
     role: "Homeowner",
     date: "5 months ago",
+    location: "Riverview",
   },
 ];
 
-export default function HomePage() {
-  const [activeTab, setActiveTab] = useState<"exterior" | "cabinets" | "interior" | "commercial">("exterior");
+const heroImages = [
+  "/project-images/jta_work_1.jpg",
+  "/project-images/jta_work_2.jpg",
+  "/project-images/jta_work_3.jpg",
+  "/project-images/jta_work_4.jpg",
+  "/project-images/jta_work_5.jpg",
+  "/project-images/jta_work_6.jpg",
+  "/project-images/jta_work_7.jpg",
+  "/project-images/jta_work_8.jpg",
+];
 
+function HeroCarousel() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 4000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <div className="relative w-full aspect-[16/9] sm:aspect-[21/9] rounded-2xl overflow-hidden border border-slate-800 shadow-2xl shadow-black/50 group mt-10">
+      {heroImages.map((src, index) => (
+        <div
+          key={src}
+          className={cn(
+            "absolute inset-0 transition-opacity duration-1000 ease-in-out",
+            index === currentIndex ? "opacity-100 z-10" : "opacity-0 z-0"
+          )}
+        >
+          <Image
+            src={src}
+            alt={`JTA Advance Painting completed project ${index + 1}`}
+            fill
+            className="object-cover"
+            sizes="(max-width: 1024px) 100vw, 80vw"
+            priority={index === 0}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />
+        </div>
+      ))}
+
+      {/* Manual Navigation Controls */}
+      <button
+        onClick={() => setCurrentIndex((prev) => (prev === 0 ? heroImages.length - 1 : prev - 1))}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 size-10 rounded-full bg-slate-950/60 text-white flex items-center justify-center border border-slate-800 hover:bg-slate-900 transition-all opacity-0 group-hover:opacity-100"
+        aria-label="Previous project"
+      >
+        <ChevronLeft className="size-5" />
+      </button>
+      <button
+        onClick={() => setCurrentIndex((prev) => (prev + 1) % heroImages.length)}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 size-10 rounded-full bg-slate-950/60 text-white flex items-center justify-center border border-slate-800 hover:bg-slate-900 transition-all opacity-0 group-hover:opacity-100"
+        aria-label="Next project"
+      >
+        <ChevronRight className="size-5" />
+      </button>
+
+      {/* Slide Indicators */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {heroImages.map((_, idx) => (
+          <button
+            key={idx}
+            onClick={() => setCurrentIndex(idx)}
+            className={cn(
+              "size-2 rounded-full transition-all",
+              idx === currentIndex ? "bg-logo-gold w-6" : "bg-white/40 hover:bg-white/60"
+            )}
+            aria-label={`Go to slide ${idx + 1}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default function HomePage() {
   return (
     <div className="flex flex-col bg-background text-foreground">
       {/* 1. Hero Section (DARK & PREMIUM) */}
@@ -188,121 +266,99 @@ export default function HomePage() {
             src="/project-images/jta_work_1.jpg"
             alt="JTA Advance Painting professional work"
             fill
-            className="object-cover opacity-35"
+            className="object-cover opacity-25"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/90 to-slate-900" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/85 to-slate-950" />
           {/* Glowing Paint Splats / Blobs in the Hero Background */}
           <div className="absolute top-1/4 left-1/4 size-80 rounded-full bg-logo-yellow/10 blur-[130px] pointer-events-none" />
           <div className="absolute bottom-1/3 right-1/4 size-96 rounded-full bg-logo-red/10 blur-[140px] pointer-events-none" />
           <div className="absolute top-1/3 right-10 size-72 rounded-full bg-logo-purple/10 blur-[120px] pointer-events-none" />
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-12 gap-12 items-center">
-            {/* Headline / Copy */}
-            <div className="lg:col-span-7 text-left">
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 backdrop-blur-md">
-                <Sparkles className="size-4 text-primary animate-pulse" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                  ⭐⭐⭐⭐⭐ 4.9 Stars on Google
-                </span>
-              </div>
-              
-              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.12]">
-                Transform Your Home <br />
-                <span className="relative inline-block px-1 mt-1 text-slate-950">
-                  <span className="relative z-10 font-black">Without the Stress</span>
-                  <PaintBrushStroke color="gold" className="absolute left-0 bottom-1 h-[80%] w-full -rotate-1.5 opacity-95" />
-                </span>
-              </h1>
-              
-              <p className="mt-6 text-lg text-slate-350 leading-relaxed max-w-xl">
-                Licensed, insured, and trusted by Tampa Bay homeowners for flawless, high-durability interior and exterior painting services.
-              </p>
+        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 py-20 sm:px-6 lg:px-8 flex flex-col items-center justify-center text-center min-h-[600px]">
+          <div className="max-w-4xl flex flex-col items-center w-full">
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 backdrop-blur-md">
+              <Sparkles className="size-4 text-primary animate-pulse" />
+              <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                ⭐⭐⭐⭐⭐ 4.9 Stars on Google
+              </span>
+            </div>
+            
+            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.2] drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]">
+              Transform Your Home <br />
+              <span className="text-logo-gold font-black">Without the Stress</span>
+            </h1>
+            
+            <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]">
+              Licensed, insured, and trusted by Tampa Bay homeowners for flawless, high-durability interior and exterior painting services.
+            </p>
 
-              {/* Badges immediately under description */}
-              <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-4 border-t border-slate-800/80 pt-8">
-                <div className="flex flex-col gap-1">
-                  <span className="text-2xl font-bold text-white flex items-center">
-                    <Star className="size-5 text-logo-yellow fill-logo-yellow mr-1" />
-                    <span>4.9</span>
-                  </span>
-                  <span className="text-xs text-slate-400">Google Rating</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-2xl font-bold text-white">500+</span>
-                  <span className="text-xs text-slate-400">Projects Completed</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-2xl font-bold text-white flex items-center">
-                    <ShieldCheck className="size-5 text-logo-green mr-1" />
-                    <span>Licensed</span>
-                  </span>
-                  <span className="text-xs text-slate-400">&amp; Insured Crew</span>
-                </div>
-                <div className="flex flex-col gap-1">
-                  <span className="text-2xl font-bold text-white">Tampa</span>
-                  <span className="text-xs text-slate-400">Bay Coverage</span>
-                </div>
+            {/* Badges immediately under description */}
+            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-slate-800/80 pt-8 w-full">
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-2xl font-bold text-white flex items-center justify-center">
+                  <Star className="size-5 text-logo-yellow fill-logo-yellow mr-1" />
+                  <span>4.9</span>
+                </span>
+                <span className="text-xs text-slate-400">Google Rating</span>
               </div>
-
-              <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-                <Link href="/contact">
-                  <Button
-                    size="lg"
-                    className="bg-primary text-primary-foreground font-semibold px-8 py-6 rounded-xl transition-all hover:scale-105 hover:bg-primary/95 hover:shadow-lg hover:shadow-primary/20"
-                  >
-                    Get a Free Quote
-                    <ArrowRight className="ml-2 size-4" />
-                  </Button>
-                </Link>
-                <a href="tel:813-392-8301">
-                  <Button
-                    variant="outline"
-                    size="lg"
-                    className="border-slate-800 bg-slate-900/60 text-white font-semibold px-8 py-6 rounded-xl transition-all hover:bg-slate-800 hover:border-slate-700"
-                  >
-                    <Phone className="mr-2 size-4 text-logo-red" />
-                    Call 813-392-8301
-                  </Button>
-                </a>
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-2xl font-bold text-white">107+</span>
+                <span className="text-xs text-slate-400">Projects Completed</span>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-2xl font-bold text-white flex items-center justify-center">
+                  <ShieldCheck className="size-5 text-logo-green mr-1" />
+                  <span>4+ Years</span>
+                </span>
+                <span className="text-xs text-slate-400">Tampa Experience</span>
+              </div>
+              <div className="flex flex-col items-center gap-1">
+                <span className="text-2xl font-bold text-white flex items-center justify-center">
+                  <ShieldCheck className="size-5 text-logo-purple mr-1" />
+                  <span>Licensed</span>
+                </span>
+                <span className="text-xs text-slate-400">&amp; Insured Crew</span>
               </div>
             </div>
 
-            {/* Quick visual card for confidence (Right side of Hero) */}
-            <div className="lg:col-span-5 relative w-full aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border border-slate-800 hidden lg:block">
-              <Image
-                src="/project-images/jta_work_5.jpg"
-                alt="Beautiful paint transformation detail"
-                fill
-                className="object-cover"
-                sizes="30vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 flex justify-between items-center bg-slate-950/80 backdrop-blur border border-slate-800 p-4 rounded-xl">
-                <div className="flex items-center gap-2">
-                  <div className="size-2 rounded-full bg-logo-green animate-ping" />
-                  <span className="text-xs font-semibold text-white">Active project in Brandon</span>
-                </div>
-                <Link href="/gallery" className="text-xs text-primary font-bold hover:underline flex items-center">
-                  <span>View gallery</span>
-                  <ArrowRight className="ml-1 size-3" />
-                </Link>
-              </div>
+            {/* Project Photo Carousel */}
+            <HeroCarousel />
+
+            <div className="mt-10 flex flex-col gap-4 sm:flex-row items-center justify-center w-full">
+              <Link href="/contact" className="w-full sm:w-auto">
+                <Button
+                  size="lg"
+                  className="bg-primary text-primary-foreground font-semibold px-8 py-6 rounded-xl transition-all hover:scale-105 hover:bg-primary/95 hover:shadow-lg hover:shadow-primary/20 w-full sm:w-auto"
+                >
+                  Get a Free Quote
+                  <ArrowRight className="ml-2 size-4" />
+                </Button>
+              </Link>
+              <a href="tel:813-392-8301" className="w-full sm:w-auto">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="border-slate-800 bg-slate-900/60 text-white font-semibold px-8 py-6 rounded-xl transition-all hover:bg-slate-800 hover:border-slate-700 w-full sm:w-auto"
+                >
+                  <Phone className="mr-2 size-4 text-logo-red" />
+                  Call 813-392-8301
+                </Button>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. Counter Statistics Section (LIGHT ACCENT TRANSITION) */}
+      {/* 2. Stats Section (LIGHT ACCENT TRANSITION) */}
       <section className="bg-slate-900 border-t border-slate-800/80 px-4 py-8 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="p-4 border-r border-slate-800 last:border-0">
               <p className="text-4xl font-extrabold text-white">
-                <StatCounter end={500} suffix="+" />
+                <StatCounter end={107} suffix="+" />
               </p>
               <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">
                 Projects Completed
@@ -310,7 +366,7 @@ export default function HomePage() {
             </div>
             <div className="p-4 md:border-r border-slate-800 last:border-0">
               <p className="text-4xl font-extrabold text-white">
-                <StatCounter end={15} suffix="+" />
+                <StatCounter end={4} suffix="+" />
               </p>
               <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">
                 Years Experience
@@ -324,12 +380,13 @@ export default function HomePage() {
                 Google Review Rating
               </p>
             </div>
-            <div className="p-4 last:border-0">
-              <p className="text-4xl font-extrabold text-white">
-                <StatCounter end={100} suffix="%" />
+            <div className="p-4 last:border-0 flex flex-col items-center justify-center">
+              <p className="text-3xl font-extrabold text-white flex items-center justify-center gap-2">
+                <ShieldCheck className="size-6 text-logo-green shrink-0" />
+                <span>Licensed</span>
               </p>
               <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">
-                Satisfaction Guarantee
+                &amp; Insured Crew
               </p>
             </div>
           </div>
@@ -443,106 +500,95 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 5. Before & After Slider Section (LIGHT BACKGROUND) */}
-      <section className="px-4 py-24 sm:px-6 lg:px-8 bg-background">
-        <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-              See the Visual Difference
-            </h2>
-            <p className="mt-4 text-slate-600">
-              Drag the vertical handle in the sliders below to check the transformation difference on real homes.
-            </p>
-
-            {/* Slider Switcher Tabs */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-              {[
-                { id: "exterior" as const, label: "House Exterior", image: "/project-images/jta_work_2.jpg" },
-                { id: "cabinets" as const, label: "Cabinet Painting", image: "/project-images/jta_work_5.jpg" },
-                { id: "interior" as const, label: "Interior Spaces", image: "/project-images/jta_work_1.jpg" },
-                { id: "commercial" as const, label: "Commercial Office", image: "/project-images/jta_work_3.jpg" },
-              ].map((tab) => (
-                <button
-                  key={tab.id}
-                  onClick={() => setActiveTab(tab.id)}
-                  className={cn(
-                    "px-4 py-2 rounded-xl text-xs font-bold transition-all border",
-                    activeTab === tab.id
-                      ? "bg-slate-900 border-slate-950 text-white shadow-md shadow-black/10"
-                      : "bg-white border-slate-200 text-slate-600 hover:bg-slate-50 hover:text-black"
-                  )}
-                >
-                  {tab.label}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Slider Container */}
-          <div className="max-w-3xl mx-auto">
-            {activeTab === "exterior" && (
-              <BeforeAfterSlider
-                beforeImage="/project-images/jta_work_2.jpg"
-                afterImage="/project-images/jta_work_2.jpg"
-                beforeAlt="Faded siding house exterior before painting"
-                afterAlt="Freshly painted siding exterior after painting"
-                simulateBefore
-              />
-            )}
-            {activeTab === "cabinets" && (
-              <BeforeAfterSlider
-                beforeImage="/project-images/jta_work_5.jpg"
-                afterImage="/project-images/jta_work_5.jpg"
-                beforeAlt="Scratched outdated wood cabinets before refinishing"
-                afterAlt="Smooth modern paint coat on cabinets after refinishing"
-                simulateBefore
-              />
-            )}
-            {activeTab === "interior" && (
-              <BeforeAfterSlider
-                beforeImage="/project-images/jta_work_1.jpg"
-                afterImage="/project-images/jta_work_1.jpg"
-                beforeAlt="Dull and worn drywalls before application"
-                afterAlt="Vibrant clean white walls after paint application"
-                simulateBefore
-              />
-            )}
-            {activeTab === "commercial" && (
-              <BeforeAfterSlider
-                beforeImage="/project-images/jta_work_3.jpg"
-                afterImage="/project-images/jta_work_3.jpg"
-                beforeAlt="Chipped commercial concrete walls before painting"
-                afterAlt="Uniform clean commercial walls after painting"
-                simulateBefore
-              />
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* 6. Paint Color Visualizer Section (DARK BACKGROUND & INTERACTIVE) */}
-      <section className="bg-slate-950 px-4 py-24 sm:px-6 lg:px-8 border-t border-slate-900">
+      {/* 5. Before & After Showcase Section (LIGHT BACKGROUND) */}
+      <section className="px-4 py-24 sm:px-6 lg:px-8 bg-background border-t border-slate-100">
         <div className="mx-auto max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <div className="inline-flex items-center gap-2 bg-logo-gold/10 border border-logo-gold/20 px-3 py-1 rounded-full text-xs font-semibold text-logo-gold mb-4">
-              <PaintBrushStroke color="gold" className="size-4 fill-logo-gold" />
-              <span>Interactive Designer Workspace</span>
-            </div>
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl text-white">
-              Try Before You Paint
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Real Transformations: Before & After
             </h2>
-            <p className="mt-4 text-slate-400">
-              Interactive Room Paint Visualizer. Tap a room option below, select swatches, and visualize combinations instantly!
+            <p className="mt-4 text-slate-600">
+              No simulated filters or stock photos. Take a look at the actual visual difference our expert painting services make on Tampa Bay homes.
             </p>
           </div>
 
-          <div className="max-w-4xl mx-auto">
-            <ColorVisualizer />
+          <div className="grid gap-16 lg:grid-cols-2">
+            {/* Project 1: House Exterior */}
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">Residential Home Exterior</h3>
+                  <p className="text-sm text-slate-500 mt-1">Full exterior restoration & high-durability paint job</p>
+                </div>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                  <Image
+                    src="/project-images/exterior_before.png"
+                    alt="House exterior siding before painting"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 25vw"
+                  />
+                  <div className="absolute top-3 left-3 bg-logo-red text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                    Before
+                  </div>
+                </div>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                  <Image
+                    src="/project-images/exterior_after.png"
+                    alt="House exterior siding after professional painting"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 25vw"
+                  />
+                  <div className="absolute top-3 left-3 bg-logo-green text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                    After
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Project 2: Kitchen Cabinets */}
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center justify-between">
+                <div>
+                  <h3 className="text-xl font-bold text-slate-900">Cabinet Paint Refinishing</h3>
+                  <p className="text-sm text-slate-500 mt-1">From outdated worn wood to a premium factory-like smooth finish</p>
+                </div>
+              </div>
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                  <Image
+                    src="/project-images/cabinets_before.png"
+                    alt="Kitchen cabinets before painting"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 25vw"
+                  />
+                  <div className="absolute top-3 left-3 bg-logo-red text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                    Before
+                  </div>
+                </div>
+                <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md">
+                  <Image
+                    src="/project-images/cabinets_after.png"
+                    alt="Kitchen cabinets after professional painting"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 640px) 100vw, 25vw"
+                  />
+                  <div className="absolute top-3 left-3 bg-logo-green text-white text-xs font-bold px-3 py-1 rounded-full shadow-md uppercase tracking-wider">
+                    After
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 7. Service Area Section with Styled Map (LIGHT BACKGROUND) */}
+      {/* 6. Service Area Section with Styled Map (LIGHT BACKGROUND) */}
       <section className="px-4 py-24 sm:px-6 lg:px-8 bg-slate-50 border-t border-slate-100">
         <div className="mx-auto max-w-7xl">
           <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -629,7 +675,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 8. Redesigned Testimonials Section (DARK & TRUSTWORTHY) */}
+      {/* 7. Reviews Section (DARK & TRUSTWORTHY) */}
       <section className="bg-slate-950 px-4 py-24 sm:px-6 lg:px-8 border-t border-slate-900">
         <div className="mx-auto max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-16">
@@ -712,9 +758,17 @@ export default function HomePage() {
                             <CheckCircle2 className="size-2.5 text-logo-green fill-logo-green/10" />
                           </span>
                         </p>
-                        <p className="text-[10px] text-slate-400 font-medium mt-0.5">
-                          {t.role} &bull; {t.date}
+                        <p className="text-[10px] text-slate-400 font-medium mt-0.5 flex items-center gap-1.5">
+                          <span>{t.role}</span>
+                          <span>&bull;</span>
+                          <span>{t.date}</span>
                         </p>
+                        {t.location && (
+                          <p className="text-[10px] text-logo-orange font-semibold mt-1 flex items-center gap-1">
+                            <MapPin className="size-3 text-logo-orange shrink-0" />
+                            <span>📍 {t.location}</span>
+                          </p>
+                        )}
                       </div>
                     </div>
                   </CardContent>
@@ -725,7 +779,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* 9. Final CTA Section (VIBRANT GLOWING GRADIENT CANVAS) */}
+      {/* 8. Final CTA Section (VIBRANT GLOWING GRADIENT CANVAS) */}
       <section className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 rounded-3xl mx-4 my-8 shadow-2xl">
         <div className="absolute inset-0 bg-gradient-to-r from-logo-red via-logo-orange to-logo-gold" />
         <div className="absolute inset-0 opacity-15">
