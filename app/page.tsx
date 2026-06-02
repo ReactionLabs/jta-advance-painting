@@ -562,7 +562,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">Residential Home Exterior</h3>
+                  <h3 className="text-xl font-bold text-slate-900">Exterior Painting Transformation</h3>
                   <p className="text-sm text-slate-500 mt-1">Full exterior restoration & high-durability paint job</p>
                 </div>
               </div>
@@ -598,7 +598,7 @@ export default function HomePage() {
             <div className="flex flex-col gap-4">
               <div className="flex items-center justify-between">
                 <div>
-                  <h3 className="text-xl font-bold text-slate-900">Cabinet Paint Refinishing</h3>
+                  <h3 className="text-xl font-bold text-slate-900">Cabinet Refinishing Transformation</h3>
                   <p className="text-sm text-slate-500 mt-1">From outdated worn wood to a premium factory-like smooth finish</p>
                 </div>
               </div>
