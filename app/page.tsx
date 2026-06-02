@@ -187,96 +187,97 @@ export default function HomePage() {
             src="/project-images/jta_work_1.jpg"
             alt="JTA Advance Painting professional work"
             fill
-            className="object-cover opacity-50"
+            className="object-cover opacity-20"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950/20 to-slate-950/60" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-950/70" />
           {/* Glowing Paint Splats / Blobs in the Hero Background */}
           <div className="absolute top-1/4 left-1/4 size-80 rounded-full bg-logo-yellow/10 blur-[130px] pointer-events-none" />
           <div className="absolute bottom-1/3 right-1/4 size-96 rounded-full bg-logo-red/10 blur-[140px] pointer-events-none" />
           <div className="absolute top-1/3 right-10 size-72 rounded-full bg-logo-purple/10 blur-[120px] pointer-events-none" />
         </div>
 
-        <div className="relative z-10 mx-auto w-full max-w-5xl px-4 py-20 sm:px-6 lg:px-8 flex flex-col items-start justify-center text-left min-h-[600px]">
-          <div className="max-w-3xl flex flex-col items-start w-full">
-            {/* Hero Brand Logo */}
-            <div className="mb-8 flex items-start justify-start">
-              <Image
-                src="/logo.png"
-                alt="JTA Advance Painting Brand Logo"
-                width={280}
-                height={88}
-                className="h-16 md:h-20 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.65)]"
-                priority
-              />
-            </div>
-            
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 backdrop-blur-md">
-              <Sparkles className="size-4 text-primary animate-pulse" />
-              <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                ⭐⭐⭐⭐⭐ 4.9 Stars on Google
-              </span>
-            </div>
-            
-            <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.2] drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] text-left">
-              Transform Your Home <br />
-              <span className="text-logo-gold font-black">Without the Stress</span>
-            </h1>
-            
-            <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-left">
-              Licensed, insured, and trusted by Tampa Bay homeowners for flawless, high-durability interior and exterior painting services.
-            </p>
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 flex items-center min-h-[600px]">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center w-full py-12">
+            {/* Left Column: Headline + CTA */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left w-full">
+              {/* Hero Brand Logo */}
+              <div className="mb-8 flex items-start justify-start">
+                <Image
+                  src="/logo.png"
+                  alt="JTA Advance Painting Brand Logo"
+                  width={280}
+                  height={88}
+                  className="h-16 md:h-20 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.65)]"
+                  priority
+                />
+              </div>
+              
+              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 backdrop-blur-md">
+                <Sparkles className="size-4 text-primary animate-pulse" />
+                <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                  ⭐⭐⭐⭐⭐ 4.9 Stars on Google
+                </span>
+              </div>
+              
+              <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.2] drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] text-left">
+                Premium Interior &amp; Exterior <br />
+                <span className="text-logo-gold font-black">Painting in Tampa Bay</span>
+              </h1>
+              
+              <p className="mt-6 text-lg text-slate-300 leading-relaxed max-w-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] text-left">
+                Transform your home with professional painting you can trust. Licensed, insured, and trusted local experts delivering flawless, high-durability finishes.
+              </p>
 
-            {/* Badges immediately under description */}
-            <div className="mt-8 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-slate-800/80 pt-8 w-full">
-              <div className="flex flex-col items-start gap-1">
-                <span className="text-2xl font-bold text-white flex items-center justify-start">
-                  <Star className="size-5 text-logo-yellow fill-logo-yellow mr-1" />
-                  <span>4.9</span>
-                </span>
-                <span className="text-xs text-slate-400">Google Rating</span>
-              </div>
-              <div className="flex flex-col items-start gap-1">
-                <span className="text-2xl font-bold text-white">107+</span>
-                <span className="text-xs text-slate-400">Projects Completed</span>
-              </div>
-              <div className="flex flex-col items-start gap-1">
-                <span className="text-2xl font-bold text-white flex items-center justify-start">
-                  <ShieldCheck className="size-5 text-logo-green mr-1" />
-                  <span>4+ Years</span>
-                </span>
-                <span className="text-xs text-slate-400">Tampa Experience</span>
-              </div>
-              <div className="flex flex-col items-start gap-1">
-                <span className="text-2xl font-bold text-white flex items-center justify-start">
-                  <ShieldCheck className="size-5 text-logo-purple mr-1" />
-                  <span>Licensed</span>
-                </span>
-                <span className="text-xs text-slate-400">&amp; Insured Crew</span>
+              <div className="mt-8 flex flex-col gap-4 sm:flex-row items-center sm:items-start justify-start w-full">
+                <Link href="/contact" className="w-full sm:w-auto">
+                  <Button
+                    size="lg"
+                    className="bg-primary text-primary-foreground font-semibold px-8 py-6 rounded-xl transition-all hover:scale-105 hover:bg-primary/95 hover:shadow-lg hover:shadow-primary/20 w-full sm:w-auto"
+                  >
+                    Get a Free Quote
+                    <ArrowRight className="ml-2 size-4" />
+                  </Button>
+                </Link>
+                <a href="tel:813-392-8301" className="w-full sm:w-auto">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-slate-800 bg-slate-900/60 text-white font-semibold px-8 py-6 rounded-xl transition-all hover:bg-slate-800 hover:border-slate-700 w-full sm:w-auto"
+                  >
+                    <Phone className="mr-2 size-4 text-logo-red" />
+                    Call 813-392-8301
+                  </Button>
+                </a>
               </div>
             </div>
 
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row items-center sm:items-start justify-start w-full">
-              <Link href="/contact" className="w-full sm:w-auto">
-                <Button
-                  size="lg"
-                  className="bg-primary text-primary-foreground font-semibold px-8 py-6 rounded-xl transition-all hover:scale-105 hover:bg-primary/95 hover:shadow-lg hover:shadow-primary/20 w-full sm:w-auto"
-                >
-                  Get a Free Quote
-                  <ArrowRight className="ml-2 size-4" />
-                </Button>
-              </Link>
-              <a href="tel:813-392-8301" className="w-full sm:w-auto">
-                <Button
-                  variant="outline"
-                  size="lg"
-                  className="border-slate-800 bg-slate-900/60 text-white font-semibold px-8 py-6 rounded-xl transition-all hover:bg-slate-800 hover:border-slate-700 w-full sm:w-auto"
-                >
-                  <Phone className="mr-2 size-4 text-logo-red" />
-                  Call 813-392-8301
-                </Button>
-              </a>
+            {/* Right Column: Large project photo */}
+            <div className="lg:col-span-5 flex justify-center w-full">
+              <div className="relative w-full max-w-md lg:max-w-none aspect-[4/3] sm:aspect-[1.4] lg:aspect-[1.1] rounded-[2.5rem] overflow-hidden border border-slate-800/80 shadow-2xl bg-slate-950 group">
+                <Image
+                  src="/project-images/jta_work_5.jpg"
+                  alt="Beautiful Exterior Repaint Tampa"
+                  fill
+                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  priority
+                  sizes="(max-width: 1024px) 100vw, 40vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6 bg-slate-950/80 backdrop-blur-md border border-slate-800 p-5 rounded-2xl flex items-center justify-between shadow-lg">
+                  <div className="flex flex-col gap-1">
+                    <span className="text-[10px] font-extrabold uppercase tracking-widest text-logo-gold">
+                      Featured Project
+                    </span>
+                    <h3 className="text-sm font-bold text-white">Premium Exterior Painting</h3>
+                  </div>
+                  <div className="flex items-center gap-1 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800 text-[10px] font-semibold text-slate-350">
+                    <MapPin className="size-3 text-logo-red shrink-0" />
+                    <span>Tampa, FL</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -318,6 +319,120 @@ export default function HomePage() {
               <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">
                 &amp; Insured Crew
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2b. Recent Projects Near You Section (LIGHT BACKGROUND) */}
+      <section className="px-4 py-20 sm:px-6 lg:px-8 bg-background border-t border-slate-100">
+        <div className="mx-auto max-w-7xl">
+          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
+            <div className="text-left max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 rounded-full bg-primary/10 border border-primary/20 px-3.5 py-1.5 text-xs text-primary font-semibold uppercase tracking-wider mb-4">
+                <MapPin className="size-3.5 text-primary shrink-0" />
+                <span>Local proof in action</span>
+              </div>
+              <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+                Recent Projects Near You
+              </h2>
+              <p className="mt-4 text-slate-600 leading-relaxed">
+                We are proud to serve your neighborhood. Browse actual homes and businesses we&apos;ve completed recently across the Tampa Bay area.
+              </p>
+            </div>
+            <div className="mt-6 md:mt-0">
+              <Link href="/gallery">
+                <Button variant="outline" className="border-border hover:bg-slate-50 hover:text-black font-semibold rounded-xl px-6 py-5">
+                  Explore Full Gallery
+                  <ArrowRight className="ml-2 size-4" />
+                </Button>
+              </Link>
+            </div>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Card 1: Brandon */}
+            <div className="group flex flex-col bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div className="relative aspect-[4/3] bg-muted overflow-hidden">
+                <Image
+                  src="/project-images/jta_work_6.jpg"
+                  alt="Brandon Exterior Repaint by JTA Advance Painting"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-md border border-slate-800 flex items-center gap-1">
+                  <MapPin className="size-3 text-logo-red" />
+                  <span>Brandon</span>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col gap-2 text-left">
+                <h3 className="font-bold text-base group-hover:text-primary transition-colors">Exterior Repaint</h3>
+                <p className="text-xs text-slate-500">Full exterior surface preparation and high-durability coatings for a long-lasting protective finish.</p>
+              </div>
+            </div>
+
+            {/* Card 2: Riverview */}
+            <div className="group flex flex-col bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div className="relative aspect-[4/3] bg-muted overflow-hidden">
+                <Image
+                  src="/project-images/jta_work_7.jpg"
+                  alt="Riverview Cabinet Refinish by JTA Advance Painting"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-md border border-slate-800 flex items-center gap-1">
+                  <MapPin className="size-3 text-logo-red" />
+                  <span>Riverview</span>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col gap-2 text-left">
+                <h3 className="font-bold text-base group-hover:text-primary transition-colors">Cabinet Refinish</h3>
+                <p className="text-xs text-slate-500">Premium kitchen cabinet painting, converting aged oak into a durable, smooth factory finish.</p>
+              </div>
+            </div>
+
+            {/* Card 3: Wesley Chapel */}
+            <div className="group flex flex-col bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div className="relative aspect-[4/3] bg-muted overflow-hidden">
+                <Image
+                  src="/project-images/jta_work_8.jpg"
+                  alt="Wesley Chapel Interior Remodel by JTA Advance Painting"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-md border border-slate-800 flex items-center gap-1">
+                  <MapPin className="size-3 text-logo-red" />
+                  <span>Wesley Chapel</span>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col gap-2 text-left">
+                <h3 className="font-bold text-base group-hover:text-primary transition-colors">Interior Remodel</h3>
+                <p className="text-xs text-slate-500">Detailed drywall prep, custom accent walls, and ceiling paint for a crisp modern interior aesthetic.</p>
+              </div>
+            </div>
+
+            {/* Card 4: Tampa */}
+            <div className="group flex flex-col bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+              <div className="relative aspect-[4/3] bg-muted overflow-hidden">
+                <Image
+                  src="/project-images/jta_work_4.jpg"
+                  alt="Tampa Commercial Stairwell by JTA Advance Painting"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+                <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-md border border-slate-800 flex items-center gap-1">
+                  <MapPin className="size-3 text-logo-red" />
+                  <span>Tampa</span>
+                </div>
+              </div>
+              <div className="p-5 flex flex-col gap-2 text-left">
+                <h3 className="font-bold text-base group-hover:text-primary transition-colors">Commercial Stairwell</h3>
+                <p className="text-xs text-slate-500">Heavy-duty, high-traffic commercial repaint for warehouse safety stairwells and walls.</p>
+              </div>
             </div>
           </div>
         </div>
@@ -530,22 +645,113 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-              <div
-                key={num}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md group bg-muted"
-              >
-                <Image
-                  src={`/project-images/jta_work_${num}.jpg`}
-                  alt={`JTA Advance Painting past project ${num}`}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 50vw, 25vw"
-                />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors pointer-events-none" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+            {/* Card 1: Featured (2x2 on desktop, full width on mobile) */}
+            <div className="relative col-span-2 md:row-span-2 aspect-[4/3] md:aspect-auto rounded-3xl overflow-hidden border border-slate-200 shadow-md group bg-muted">
+              <Image
+                src="/project-images/jta_work_1.jpg"
+                alt="Featured Project: Full Exterior Paint & Restoration"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent flex flex-col justify-end p-6 md:p-8 text-left">
+                <span className="bg-logo-gold text-black text-[10px] font-black px-3.5 py-1.5 rounded-full uppercase tracking-wider w-fit mb-3 shadow-md">
+                  Featured Project
+                </span>
+                <h3 className="text-xl md:text-2xl font-black text-white drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)]">
+                  Full Exterior Paint &amp; Restoration
+                </h3>
+                <p className="text-xs md:text-sm text-slate-350 mt-2 flex items-center gap-1.5 font-semibold">
+                  <MapPin className="size-4 text-logo-gold" />
+                  <span>Tampa, FL</span>
+                </p>
               </div>
-            ))}
+            </div>
+
+            {/* Card 2: Standard */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md group bg-muted">
+              <Image
+                src="/project-images/jta_work_2.jpg"
+                alt="JTA Advance Painting completed project"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors pointer-events-none" />
+            </div>
+
+            {/* Card 3: Standard */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md group bg-muted">
+              <Image
+                src="/project-images/jta_work_3.jpg"
+                alt="JTA Advance Painting completed project"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors pointer-events-none" />
+            </div>
+
+            {/* Card 4: Standard */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md group bg-muted">
+              <Image
+                src="/project-images/jta_work_4.jpg"
+                alt="JTA Advance Painting completed project"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors pointer-events-none" />
+            </div>
+
+            {/* Card 5: Standard */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md group bg-muted">
+              <Image
+                src="/project-images/jta_work_5.jpg"
+                alt="JTA Advance Painting completed project"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors pointer-events-none" />
+            </div>
+
+            {/* Card 6: Wide (2 columns wide on desktop) */}
+            <div className="relative col-span-2 aspect-[4/3] md:aspect-auto rounded-3xl overflow-hidden border border-slate-200 shadow-md group bg-muted">
+              <Image
+                src="/project-images/jta_work_6.jpg"
+                alt="JTA Advance Painting completed project"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-black/15 group-hover:bg-black/0 transition-colors pointer-events-none" />
+            </div>
+
+            {/* Card 7: Standard */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md group bg-muted">
+              <Image
+                src="/project-images/jta_work_7.jpg"
+                alt="JTA Advance Painting completed project"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors pointer-events-none" />
+            </div>
+
+            {/* Card 8: Standard */}
+            <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md group bg-muted">
+              <Image
+                src="/project-images/jta_work_8.jpg"
+                alt="JTA Advance Painting completed project"
+                fill
+                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                sizes="(max-width: 640px) 50vw, 25vw"
+              />
+              <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors pointer-events-none" />
+            </div>
           </div>
 
           <div className="mt-12 text-center">
