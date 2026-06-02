@@ -90,7 +90,7 @@ function AboutPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
             About JTA Advance Painting
           </h1>
-          <p className="text-lg text-slate-300 max-w-2xl leading-relaxed">
+          <p className="text-lg text-white max-w-2xl leading-relaxed">
             For over 15 years, we&apos;ve been transforming homes and businesses
             across Tampa Bay with exceptional painting services built on
             integrity, quality, and customer satisfaction.

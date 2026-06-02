@@ -81,7 +81,7 @@ export default function TestimonialsPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
             What Our Clients Say
           </h1>
-          <p className="text-lg text-slate-350 max-w-2xl leading-relaxed">
+          <p className="text-lg text-white max-w-2xl leading-relaxed">
             Trusted by homeowners, property managers, HOA boards, and businesses across Tampa Bay. See why so many choose JTA.
           </p>
         </div>

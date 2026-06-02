@@ -192,7 +192,7 @@ export default function GalleryPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
             Project Gallery
           </h1>
-          <p className="text-lg text-slate-355 max-w-2xl leading-relaxed">
+          <p className="text-lg text-white max-w-2xl leading-relaxed">
             Browse our collection of completed residential and commercial painting projects across Tampa Bay.
           </p>
         </div>

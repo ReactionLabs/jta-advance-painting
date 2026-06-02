@@ -68,7 +68,7 @@ export default function ContactPage() {
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 leading-tight">
             Get in Touch
           </h1>
-          <p className="text-lg text-slate-350 max-w-2xl leading-relaxed">
+          <p className="text-lg text-white max-w-2xl leading-relaxed">
             Ready to start your painting project? We&apos;d love to hear from you. Get a free estimate today.
           </p>
         </div>

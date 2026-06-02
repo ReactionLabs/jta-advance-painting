@@ -187,11 +187,11 @@ export default function HomePage() {
             src="/project-images/jta_work_1.jpg"
             alt="JTA Advance Painting professional work"
             fill
-            className="object-cover opacity-25"
+            className="object-cover opacity-50"
             priority
             sizes="100vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-950/85 to-slate-950" />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-950/20 to-slate-950/60" />
           {/* Glowing Paint Splats / Blobs in the Hero Background */}
           <div className="absolute top-1/4 left-1/4 size-80 rounded-full bg-logo-yellow/10 blur-[130px] pointer-events-none" />
           <div className="absolute bottom-1/3 right-1/4 size-96 rounded-full bg-logo-red/10 blur-[140px] pointer-events-none" />
