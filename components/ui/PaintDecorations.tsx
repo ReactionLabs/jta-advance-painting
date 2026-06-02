@@ -17,41 +17,63 @@ export function PaintDrips({ flipped = false, className, ...props }: PaintDripsP
       {...props}
     >
       <svg
-        viewBox="0 0 1440 120"
+        viewBox="0 0 1440 140"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-auto min-h-[40px] md:min-h-[80px]"
+        className="w-full h-auto min-h-[50px] md:min-h-[90px]"
         preserveAspectRatio="none"
       >
         {/* Layer 1: Yellow Splats & Drips (Background) */}
         <path
-          d="M0,0 L0,45 Q60,105 120,45 T240,35 T360,95 T480,25 T600,85 T720,40 T840,55 T960,105 T1080,45 T1200,35 T1320,90 T1400,40 T1440,50 L1440,0 Z"
+          d="M0,0 L0,30 Q160,40 320,25 T640,35 T960,20 T1280,30 T1440,25 L1440,0 Z M 24,0 L 24,80 A 6,6 0 1 0 36,80 L 36,0 Z M 176,0 L 176,61 A 4,4 0 1 0 184,61 L 184,0 Z M 305,0 L 305,75 A 5,5 0 1 0 315,75 L 315,0 Z M 494,0 L 494,94 A 6,6 0 1 0 506,94 L 506,0 Z M 676,0 L 676,71 A 4,4 0 1 0 684,71 L 684,0 Z M 855,0 L 855,85 A 5,5 0 1 0 865,85 L 865,0 Z M 1046,0 L 1046,66 A 4,4 0 1 0 1054,66 L 1054,0 Z M 1244,0 L 1244,99 A 6,6 0 1 0 1256,99 L 1256,0 Z"
           className="fill-logo-yellow/70"
         />
+        <circle cx="30" cy="100" r="4" className="fill-logo-yellow/70" />
+        <circle cx="500" cy="115" r="4.5" className="fill-logo-yellow/70" />
+        <circle cx="860" cy="108" r="4" className="fill-logo-yellow/70" />
+        <circle cx="1250" cy="120" r="4.5" className="fill-logo-yellow/70" />
 
         {/* Layer 2: Orange Splats & Drips */}
         <path
-          d="M0,0 L0,30 Q80,90 160,30 T320,80 T480,20 T640,70 T800,30 T960,90 T1120,25 T1280,75 T1440,40 L1440,0 Z"
+          d="M0,0 L0,25 Q180,35 360,20 T720,30 T1080,15 T1440,25 L1440,0 Z M 86,0 L 86,56 A 4,4 0 1 0 94,56 L 94,0 Z M 255,0 L 255,70 A 5,5 0 1 0 265,70 L 265,0 Z M 444,0 L 444,85 A 6,6 0 1 0 456,85 L 456,0 Z M 586,0 L 586,66 A 4,4 0 1 0 594,66 L 594,0 Z M 745,0 L 745,80 A 5,5 0 1 0 755,80 L 755,0 Z M 956,0 L 956,61 A 4,4 0 1 0 964,61 L 964,0 Z M 1124,0 L 1124,90 A 6,6 0 1 0 1136,90 L 1136,0 Z M 1305,0 L 1305,75 A 5,5 0 1 0 1315,75 L 1315,0 Z"
           className="fill-logo-orange/80"
         />
+        <circle cx="260" cy="90" r="3" className="fill-logo-orange/80" />
+        <circle cx="450" cy="105" r="4" className="fill-logo-orange/80" />
+        <circle cx="750" cy="98" r="3.5" className="fill-logo-orange/80" />
+        <circle cx="1130" cy="110" r="4.5" className="fill-logo-orange/80" />
 
         {/* Layer 3: Green Splats & Drips */}
         <path
-          d="M0,0 L0,20 Q100,85 200,20 T400,65 T600,15 T800,75 T1000,25 T1200,80 T1400,30 T1440,35 L1440,0 Z"
+          d="M0,0 L0,20 Q200,30 400,15 T800,25 T1200,10 T1440,20 L1440,0 Z M 145,0 L 145,75 A 5,5 0 1 0 155,75 L 155,0 Z M 324,0 L 324,90 A 6,6 0 1 0 336,90 L 336,0 Z M 486,0 L 486,66 A 4,4 0 1 0 494,66 L 494,0 Z M 655,0 L 655,80 A 5,5 0 1 0 665,80 L 665,0 Z M 826,0 L 826,71 A 4,4 0 1 0 834,71 L 834,0 Z M 1015,0 L 1015,85 A 5,5 0 1 0 1025,85 L 1025,0 Z M 1205,0 L 1205,75 A 5,5 0 1 0 1215,75 L 1215,0 Z M 1394,0 L 1394,90 A 6,6 0 1 0 1406,90 L 1406,0 Z"
           className="fill-logo-green/75"
         />
+        <circle cx="150" cy="95" r="3.5" className="fill-logo-green/75" />
+        <circle cx="330" cy="110" r="4.5" className="fill-logo-green/75" />
+        <circle cx="660" cy="100" r="4" className="fill-logo-green/75" />
+        <circle cx="1020" cy="105" r="3.5" className="fill-logo-green/75" />
+        <circle cx="1400" cy="110" r="4" className="fill-logo-green/75" />
 
         {/* Layer 4: Purple Splats & Drips */}
         <path
-          d="M0,0 L0,15 Q120,70 240,15 T480,60 T720,10 T960,70 T1200,15 T1440,45 L1440,0 Z"
+          d="M0,0 L0,15 Q220,25 440,10 T880,20 T1320,15 T1440,10 L1440,0 Z M 46,0 L 46,65 A 4,4 0 1 0 54,65 L 54,0 Z M 215,0 L 215,85 A 5,5 0 1 0 225,85 L 225,0 Z M 366,0 L 366,70 A 4,4 0 1 0 374,70 L 374,0 Z M 515,0 L 515,90 A 5,5 0 1 0 525,90 L 525,0 Z M 695,0 L 695,75 A 5,5 0 1 0 705,75 L 705,0 Z M 905,0 L 905,80 A 5,5 0 1 0 915,80 L 915,0 Z M 1074,0 L 1074,95 A 6,6 0 1 0 1086,95 L 1086,0 Z M 1276,0 L 1276,66 A 4,4 0 1 0 1284,66 L 1284,0 Z"
           className="fill-logo-purple/90"
         />
+        <circle cx="50" cy="85" r="3" className="fill-logo-purple/90" />
+        <circle cx="220" cy="108" r="4" className="fill-logo-purple/90" />
+        <circle cx="520" cy="112" r="4.5" className="fill-logo-purple/90" />
+        <circle cx="1080" cy="116" r="4" className="fill-logo-purple/90" />
 
         {/* Layer 5: Crimson Red Splats & Drips (Foreground) */}
         <path
-          d="M0,0 L0,10 Q140,85 280,10 T560,50 T840,15 T1120,80 T1400,10 T1440,25 L1440,0 Z"
+          d="M0,0 L0,10 Q240,20 480,5 T960,15 T1440,10 L1440,0 Z M 95,0 L 95,90 A 6,6 0 1 0 107,90 L 107,0 Z M 275,0 L 275,75 A 5,5 0 1 0 285,75 L 285,0 Z M 414,0 L 414,100 A 6,6 0 1 0 426,100 L 426,0 Z M 615,0 L 615,80 A 5,5 0 1 0 625,80 L 625,0 Z M 774,0 L 774,95 A 6,6 0 1 0 786,95 L 786,0 Z M 975,0 L 975,70 A 5,5 0 1 0 985,70 L 985,0 Z M 1144,0 L 1144,104 A 6,6 0 1 0 1156,104 L 1156,0 Z M 1345,0 L 1345,85 A 5,5 0 1 0 1355,85 L 1355,0 Z"
           className="fill-logo-red"
         />
+        <circle cx="101" cy="115" r="4.5" className="fill-logo-red" />
+        <circle cx="280" cy="100" r="3.5" className="fill-logo-red" />
+        <circle cx="420" cy="125" r="5" className="fill-logo-red" />
+        <circle cx="780" cy="118" r="4" className="fill-logo-red" />
+        <circle cx="1150" cy="130" r="4.5" className="fill-logo-red" />
       </svg>
     </div>
   );
