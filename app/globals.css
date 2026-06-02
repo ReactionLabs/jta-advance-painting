@@ -46,41 +46,65 @@
   --radius-2xl: calc(var(--radius) * 1.8);
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
+
+  /* Logo Specific Colors */
+  --color-logo-yellow: var(--logo-yellow);
+  --color-logo-red: var(--logo-red);
+  --color-logo-purple: var(--logo-purple);
+  --color-logo-green: var(--logo-green);
+  --color-logo-orange: var(--logo-orange);
+  --color-logo-gold: var(--logo-gold);
 }
 
 :root {
   --background: oklch(0.985 0.005 80);
-  --foreground: oklch(0.2 0.02 250);
+  --foreground: oklch(0.18 0.02 240);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.2 0.02 250);
+  --card-foreground: oklch(0.18 0.02 240);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.2 0.02 250);
-  --primary: oklch(0.25 0.06 250);
-  --primary-foreground: oklch(0.985 0.005 80);
-  --secondary: oklch(0.96 0.02 80);
-  --secondary-foreground: oklch(0.25 0.06 250);
+  --popover-foreground: oklch(0.18 0.02 240);
+  
+  /* Vibrant rich warm gold-orange for high visibility & accessibility */
+  --primary: oklch(0.58 0.18 70); 
+  --primary-foreground: oklch(0.99 0.005 80);
+  
+  --secondary: oklch(0.97 0.01 80);
+  --secondary-foreground: oklch(0.2 0.02 240);
+  
   --muted: oklch(0.94 0.01 80);
-  --muted-foreground: oklch(0.45 0.02 250);
-  --accent: oklch(0.78 0.14 70);
-  --accent-foreground: oklch(0.2 0.02 250);
-  --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.9 0.01 80);
-  --input: oklch(0.9 0.01 80);
-  --ring: oklch(0.25 0.06 250);
-  --chart-1: oklch(0.25 0.06 250);
-  --chart-2: oklch(0.78 0.14 70);
-  --chart-3: oklch(0.65 0.12 160);
-  --chart-4: oklch(0.55 0.08 200);
-  --chart-5: oklch(0.78 0.14 70);
-  --radius: 0.625rem;
+  --muted-foreground: oklch(0.45 0.02 240);
+  
+  /* Brand crimson-red for accents */
+  --accent: oklch(0.55 0.22 25);
+  --accent-foreground: oklch(0.99 0 0);
+  
+  --destructive: oklch(0.55 0.22 25);
+  --border: oklch(0.88 0.01 80);
+  --input: oklch(0.88 0.01 80);
+  --ring: oklch(0.58 0.18 70);
+  
+  /* Brand specific colors mapped from the logo palette */
+  --logo-yellow: oklch(0.85 0.19 85);   /* Vibrant splat yellow */
+  --logo-red: oklch(0.55 0.22 25);       /* Brand roller crimson */
+  --logo-purple: oklch(0.38 0.19 310);   /* Dripping violet */
+  --logo-green: oklch(0.65 0.21 145);    /* Emerald paint stroke */
+  --logo-orange: oklch(0.68 0.2 45);     /* Bright splat orange */
+  --logo-gold: oklch(0.77 0.17 72);       /* "ADVANCE" gold */
+
+  --chart-1: var(--primary);
+  --chart-2: var(--accent);
+  --chart-3: var(--logo-purple);
+  --chart-4: var(--logo-green);
+  --chart-5: var(--logo-orange);
+  --radius: 0.75rem;
   --sidebar: oklch(0.985 0.005 80);
-  --sidebar-foreground: oklch(0.2 0.02 250);
-  --sidebar-primary: oklch(0.25 0.06 250);
-  --sidebar-primary-foreground: oklch(0.985 0.005 80);
-  --sidebar-accent: oklch(0.96 0.02 80);
-  --sidebar-accent-foreground: oklch(0.25 0.06 250);
-  --sidebar-border: oklch(0.9 0.01 80);
-  --sidebar-ring: oklch(0.25 0.06 250);
+  --sidebar-foreground: oklch(0.2 0.02 240);
+  --sidebar-primary: var(--primary);
+  --sidebar-primary-foreground: var(--primary-foreground);
+  --sidebar-accent: oklch(0.97 0.01 80);
+  --sidebar-accent-foreground: var(--primary);
+  --sidebar-border: oklch(0.88 0.01 80);
+  --sidebar-ring: var(--ring);
 }
 
 .dark {

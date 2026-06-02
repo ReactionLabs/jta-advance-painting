@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { PaintBucket, Mail, MapPin, Phone } from "lucide-react";
+import { Mail, MapPin, Phone } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
+import { PaintDrips } from "@/components/ui/PaintDecorations";
 
 const services = [
   { href: "/services/interior", label: "Interior Painting" },
@@ -43,15 +45,21 @@ const contactInfo = [
 
 function Footer() {
   return (
-    <footer className="bg-muted/50">
+    <footer className="relative bg-muted/50 mt-16 md:mt-24">
+      <PaintDrips className="absolute top-0 left-0 w-full -translate-y-[98%] z-10" />
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {/* Company Info */}
           <div className="flex flex-col gap-4">
-            <Link href="/" className="flex items-center gap-2">
-              <PaintBucket className="size-6" aria-hidden="true" />
-              <span className="text-lg font-semibold">JTA Advance Painting</span>
+            <Link href="/" className="flex items-center">
+              <Image
+                src="/logo.png"
+                alt="JTA Advance Painting Logo"
+                width={150}
+                height={48}
+                className="h-11 w-auto object-contain"
+              />
             </Link>
             <p className="text-sm text-muted-foreground">
               Professional painting services for residential and commercial
