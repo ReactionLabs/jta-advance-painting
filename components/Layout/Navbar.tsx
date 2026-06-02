@@ -1,5 +1,6 @@
 "use client";
 
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { cn } from "@/lib/utils";
@@ -17,19 +18,42 @@ const navLinks = [
 ];
 
 function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 15) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+    <header className={cn(
+      "sticky top-0 z-50 w-full border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 transition-all duration-300",
+      isScrolled ? "shadow-md shadow-black/5" : ""
+    )}>
       {/* Paint Brush Gradient Stripe */}
       <div className="h-1 w-full bg-gradient-to-r from-logo-yellow via-logo-orange via-logo-red via-logo-purple to-logo-green" />
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+      <div className={cn(
+        "mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8 transition-all duration-300",
+        isScrolled ? "h-14 md:h-16" : "h-20 md:h-24"
+      )}>
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <Image
             src="/logo.png"
             alt="JTA Advance Painting Logo"
-            width={160}
-            height={50}
-            className="h-12 w-auto object-contain"
+            width={240}
+            height={75}
+            className={cn(
+              "w-auto object-contain transition-all duration-300",
+              isScrolled ? "h-9 md:h-11" : "h-14 md:h-18"
+            )}
             priority
           />
         </Link>
