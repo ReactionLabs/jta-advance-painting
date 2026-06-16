@@ -257,7 +257,7 @@ export default function HomePage() {
             <div className="lg:col-span-5 flex justify-center w-full">
               <div className="relative w-full max-w-md lg:max-w-none aspect-[4/3] sm:aspect-[1.4] lg:aspect-[1.1] rounded-[2.5rem] overflow-hidden border border-slate-800/80 shadow-2xl bg-slate-950 group">
                 <Image
-                  src="/project-images/jta_work_5.jpg"
+                  src="/project-images/exterior_after.png"
                   alt="Beautiful Exterior Repaint Tampa"
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -376,7 +376,7 @@ export default function HomePage() {
             <div className="group flex flex-col bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="relative aspect-[4/3] bg-muted overflow-hidden">
                 <Image
-                  src="/project-images/jta_work_7.jpg"
+                  src="/project-images/cabinets_after.png"
                   alt="Riverview Cabinet Refinish by JTA Advance Painting"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -649,7 +649,7 @@ export default function HomePage() {
             {/* Card 1: Featured (2x2 on desktop, full width on mobile) */}
             <div className="relative col-span-2 md:row-span-2 aspect-[4/3] md:aspect-auto rounded-3xl overflow-hidden border border-slate-200 shadow-md group bg-muted">
               <Image
-                src="/project-images/jta_work_1.jpg"
+                src="/project-images/jta_work_2.jpg"
                 alt="Featured Project: Full Exterior Paint & Restoration"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -672,7 +672,7 @@ export default function HomePage() {
             {/* Card 2: Standard */}
             <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-slate-200 shadow-md group bg-muted">
               <Image
-                src="/project-images/jta_work_2.jpg"
+                src="/project-images/jta_work_1.jpg"
                 alt="JTA Advance Painting completed project"
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-105"

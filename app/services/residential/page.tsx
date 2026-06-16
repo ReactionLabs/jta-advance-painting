@@ -346,6 +346,118 @@ export default function ResidentialPage() {
         </div>
       </section>
 
+      {/* Completed Residential Projects Showcase */}
+      <section className="px-4 py-16 sm:px-6 lg:px-8 bg-background border-t border-slate-100">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <Badge className="mb-3">Residential Portfolio</Badge>
+            <h2 className="text-3xl font-bold tracking-tight">Completed Residential Projects</h2>
+            <p className="mt-4 text-muted-foreground">
+              We specialize in custom interior transformations, cabinet refinishing, and weather-resistant exterior home painting. Here are some of our residential successes:
+            </p>
+          </div>
+          
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {/* Card 1: Exterior */}
+            <div className="group overflow-hidden rounded-2xl border border-slate-200 shadow-sm bg-white flex flex-col">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/project-images/jta_work_2.jpg"
+                  alt="Residential exterior painting makeover house repaint"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                />
+              </div>
+              <div className="p-5 text-left flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Exterior House Painting</span>
+                  <h3 className="font-bold text-sm mt-1">Full Home Exterior Makeover</h3>
+                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                    Power washing, surface repair, priming, and double coatings of premium weather-proof paint for a clean curb appeal.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Living Room */}
+            <div className="group overflow-hidden rounded-2xl border border-slate-200 shadow-sm bg-white flex flex-col">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/project-images/jta_work_1.jpg"
+                  alt="Residential interior painting living room transformation"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                />
+              </div>
+              <div className="p-5 text-left flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Interior Painting</span>
+                  <h3 className="font-bold text-sm mt-1">Living Room Color Update</h3>
+                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                    Precise accent wall lines, ceiling coatings, and trim repainting using high-end, low-odor washable paints.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: Cabinets */}
+            <div className="group overflow-hidden rounded-2xl border border-slate-200 shadow-sm bg-white flex flex-col">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/project-images/cabinets_after.png"
+                  alt="Kitchen cabinets professional spray painting refinishing"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                />
+              </div>
+              <div className="p-5 text-left flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Cabinet Refinishing</span>
+                  <h3 className="font-bold text-sm mt-1">Kitchen Cabinet Transformation</h3>
+                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                    Oak cabinet refinishing to an ultra-smooth, factory-like polyurethane finish, saving homeowners thousands compared to replacement.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 4: Bedroom */}
+            <div className="group overflow-hidden rounded-2xl border border-slate-200 shadow-sm bg-white flex flex-col">
+              <div className="relative aspect-[4/3] overflow-hidden">
+                <Image
+                  src="/project-images/jta_work_3.jpg"
+                  alt="Residential interior bedroom repainting refresh"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, 25vw"
+                />
+              </div>
+              <div className="p-5 text-left flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Bedroom Refresh</span>
+                  <h3 className="font-bold text-sm mt-1">Custom Bedroom Interior</h3>
+                  <p className="text-xs text-muted-foreground mt-2 leading-relaxed">
+                    Fresh colors, careful furniture masking, clean edges, and professional wall preparation for a relaxing home environment.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Link href="/gallery">
+              <Button variant="outline" className="rounded-xl px-8 font-semibold">
+                View Full Gallery
+                <ArrowRight className="ml-2 size-4" />
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="bg-primary px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center text-primary-foreground">

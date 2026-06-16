@@ -108,7 +108,7 @@ export default function CommercialPage() {
       {/* Hero */}
       <section className="relative h-[500px]">
         <Image
-          src="/project-images/jta_work_5.jpg"
+          src="/project-images/commercial_hero.png"
           alt="JTA commercial painting project"
           fill
           className="object-cover"
@@ -323,6 +323,72 @@ export default function CommercialPage() {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Completed Commercial Projects Showcase */}
+      <section className="px-4 py-16 sm:px-6 lg:px-8 bg-background border-t border-slate-100">
+        <div className="mx-auto max-w-7xl">
+          <div className="text-center max-w-3xl mx-auto mb-12">
+            <Badge className="mb-3">Commercial Portfolio</Badge>
+            <h2 className="text-3xl font-bold tracking-tight">Completed Commercial Projects</h2>
+            <p className="mt-4 text-muted-foreground">
+              We handle painting projects for office buildings, retail storefronts, warehouses, and industrial facilities with structured scheduling to minimize disruption.
+            </p>
+          </div>
+          
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="group overflow-hidden rounded-2xl border border-slate-200 shadow-md bg-white flex flex-col">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src="/project-images/commercial_hero.png"
+                  alt="Commercial exterior painting project office building"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="p-6 text-left flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">Office Building Exterior</span>
+                  <h3 className="text-lg font-bold mt-2">Modern Office Park Repaint</h3>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Full exterior surface prep, high-durability coatings, and trim painting completed on schedule during off-hours to prevent workflow disruptions.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="group overflow-hidden rounded-2xl border border-slate-200 shadow-md bg-white flex flex-col">
+              <div className="relative aspect-[16/10] overflow-hidden">
+                <Image
+                  src="/project-images/jta_work_4.jpg"
+                  alt="Commercial interior painting project office repainting"
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
+              </div>
+              <div className="p-6 text-left flex-1 flex flex-col justify-between">
+                <div>
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">Corporate Interior</span>
+                  <h3 className="text-lg font-bold mt-2">Professional Office Suite Repaint</h3>
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Crisp, clean interior painting for lobbies, conference rooms, hallways, and office suites using low-VOC, quick-drying paints.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="mt-12 text-center">
+            <Link href="/gallery">
+              <Button variant="outline" className="rounded-xl px-8 font-semibold">
+                View Full Gallery
+                <ArrowRight className="ml-2 size-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
