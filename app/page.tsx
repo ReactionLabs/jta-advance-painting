@@ -257,7 +257,7 @@ export default function HomePage() {
             <div className="lg:col-span-5 flex justify-center w-full">
               <div className="relative w-full max-w-md lg:max-w-none aspect-[4/3] sm:aspect-[1.4] lg:aspect-[1.1] rounded-[2.5rem] overflow-hidden border border-slate-800/80 shadow-2xl bg-slate-950 group">
                 <Image
-                  src="/project-images/exterior_after.png"
+                  src="/project-images/exterior_repaint_hero.png"
                   alt="Beautiful Exterior Repaint Tampa"
                   fill
                   className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
@@ -418,7 +418,7 @@ export default function HomePage() {
             <div className="group flex flex-col bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="relative aspect-[4/3] bg-muted overflow-hidden">
                 <Image
-                  src="/project-images/jta_work_4.jpg"
+                  src="/project-images/commercial_stairwell_repaint.png"
                   alt="Tampa Commercial Stairwell by JTA Advance Painting"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -792,67 +792,25 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Styled Vector SVG Map */}
-            <div className="lg:col-span-7 bg-white rounded-3xl border border-slate-200 shadow-xl p-6 relative overflow-hidden flex items-center justify-center">
-              <div className="absolute top-4 left-4 bg-slate-50 border border-slate-250 rounded-lg px-2.5 py-1 text-[10px] font-bold text-slate-500 uppercase tracking-wider select-none">
-                JTA Service Boundary Map
-              </div>
-              <svg
-                viewBox="0 0 400 300"
-                className="w-full h-auto max-w-[480px] bg-slate-50/50 rounded-2xl border border-slate-100"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* Background Grid Map representing Area */}
-                <defs>
-                  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                    <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#F1F5F9" strokeWidth="1" />
-                  </pattern>
-                </defs>
-                <rect width="400" height="300" fill="url(#grid)" />
-
-                {/* Bounding boundary line representing services limit */}
-                <path
-                  d="M 50,260 L 60,90 L 200,40 L 300,60 L 320,250 Z"
-                  fill="rgba(246, 176, 27, 0.05)"
-                  stroke="#F6B01B"
-                  strokeWidth="2"
-                  strokeDasharray="4,4"
-                />
-
-                {/* Service nodes dots */}
-                {serviceAreas.map((area) => (
-                  <g key={area.name} className="cursor-pointer group">
-                    {/* Glowing pulse ring */}
-                    <circle
-                      cx={area.x}
-                      cy={area.y}
-                      r="9"
-                      fill="rgba(230, 35, 37, 0.2)"
-                      className="animate-ping origin-center"
-                    />
-                    {/* Main pin node */}
-                    <circle cx={area.x} cy={area.y} r="5" fill="#E62325" />
-                    {/* Text node label */}
-                    <text
-                      x={area.x}
-                      y={area.y - 10}
-                      textAnchor="middle"
-                      fill="#1E293B"
-                      fontSize="9"
-                      fontWeight="bold"
-                      className="opacity-80 group-hover:opacity-100 transition-opacity bg-white"
-                    >
-                      {area.name}
-                    </text>
-                  </g>
-                ))}
-              </svg>
+            {/* Real Google Maps Embed */}
+            <div className="lg:col-span-7 w-full bg-white rounded-3xl border border-slate-200 shadow-xl p-4 relative overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3523.630043132717!2d-82.3564103247071!3d27.953086976802315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2c76b777a83d3%3A0x67db2383501a3ea3!2s9225%20Bay%20Plaza%20Blvd%20Suite%20417%20PMB%201205%2C%20Tampa%2C%20FL%2033619!5e0!3m2!1sen!2sus!4v1718500000000!5m2!1sen!2sus"
+                width="100%"
+                height="400"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                className="w-full h-[350px] sm:h-[400px] rounded-2xl"
+                title="JTA Advance Painting LLC Location Map"
+              ></iframe>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 8. Reviews Section (DARK & TRUSTWORTHY) */}
+      {/* 8. Reviews Section (DARK & TRUSTWORTHY) - Hidden temporarily until real ones are available
       <section className="bg-slate-950 px-4 py-24 sm:px-6 lg:px-8 border-t border-slate-900 overflow-hidden">
         <div className="mx-auto max-w-7xl">
           <div className="text-center max-w-3xl mx-auto mb-8">
@@ -868,14 +826,11 @@ export default function HomePage() {
             </p>
           </div>
 
-          {/* Endless horizontal scrolling marquee container */}
           <div className="relative w-full overflow-hidden py-6 mt-8">
-            {/* Left/Right fading overlays */}
             <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-slate-950 via-slate-950/70 to-transparent z-10 pointer-events-none" />
             <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-slate-950 via-slate-950/70 to-transparent z-10 pointer-events-none" />
 
             <div className="animate-marquee gap-6 flex flex-row">
-              {/* Render testimonials list twice to allow seamless loop translate-50% */}
               {[...testimonials, ...testimonials].map((t, idx) => {
                 const borderGradients = [
                   "bg-gradient-to-r from-logo-yellow via-logo-orange to-transparent",
@@ -897,7 +852,6 @@ export default function HomePage() {
                   >
                     <div className={cn("absolute top-0 left-0 right-0 h-1", gradient)} />
                     <CardContent className="flex flex-col gap-4 p-6 justify-between h-full min-h-[220px]">
-                      {/* Star layout with Google Review layout */}
                       <div className="flex items-center justify-between">
                         <div className="flex gap-0.5">
                           {[...Array(5)].map((_, i) => (
@@ -908,7 +862,6 @@ export default function HomePage() {
                             />
                           ))}
                         </div>
-                        {/* Google G icon representing source */}
                         <svg viewBox="0 0 24 24" className="size-4.5" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
@@ -934,7 +887,6 @@ export default function HomePage() {
                       </p>
 
                       <div className="mt-auto flex items-center gap-3 pt-4 border-t border-slate-800">
-                        {/* Round initials avatar */}
                         <div className={cn("flex size-11 items-center justify-center rounded-full font-bold text-sm", avatarStyle)}>
                           {t.author.charAt(0)}
                         </div>
@@ -966,6 +918,7 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* 9. Final CTA Section (VIBRANT GLOWING GRADIENT CANVAS) */}
       <section className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 rounded-3xl mx-4 my-8 shadow-2xl">
