@@ -285,7 +285,7 @@ export default function CommercialPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials - Hidden temporarily until real ones are available
       <section className="bg-muted/30 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
@@ -326,6 +326,7 @@ export default function CommercialPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Completed Commercial Projects Showcase */}
       <section className="px-4 py-16 sm:px-6 lg:px-8 bg-background border-t border-slate-100">
@@ -363,8 +364,8 @@ export default function CommercialPage() {
             <div className="group overflow-hidden rounded-2xl border border-slate-200 shadow-md bg-white flex flex-col">
               <div className="relative aspect-[16/10] overflow-hidden">
                 <Image
-                  src="/project-images/jta_work_4.jpg"
-                  alt="Commercial interior painting project office repainting"
+                  src="/project-images/commercial_stairwell_repaint.png"
+                  alt="Commercial parking garage stairwell painting project"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -372,10 +373,10 @@ export default function CommercialPage() {
               </div>
               <div className="p-6 text-left flex-1 flex flex-col justify-between">
                 <div>
-                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">Corporate Interior</span>
-                  <h3 className="text-lg font-bold mt-2">Professional Office Suite Repaint</h3>
+                  <span className="text-xs font-semibold text-primary uppercase tracking-wider">Facility Maintenance</span>
+                  <h3 className="text-lg font-bold mt-2">Commercial Garage Stairwell</h3>
                   <p className="text-sm text-muted-foreground mt-2">
-                    Crisp, clean interior painting for lobbies, conference rooms, hallways, and office suites using low-VOC, quick-drying paints.
+                    Heavy-duty safety coatings and wall painting for a multi-story commercial parking garage facility in Tampa.
                   </p>
                 </div>
               </div>

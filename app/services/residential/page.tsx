@@ -304,7 +304,7 @@ export default function ResidentialPage() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials - Hidden temporarily until real ones are available
       <section className="bg-muted/30 px-4 py-16 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <div className="text-center">
@@ -345,6 +345,7 @@ export default function ResidentialPage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* Completed Residential Projects Showcase */}
       <section className="px-4 py-16 sm:px-6 lg:px-8 bg-background border-t border-slate-100">

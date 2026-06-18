@@ -180,18 +180,8 @@ const testimonials = [
 export default function HomePage() {
   return (
     <div className="flex flex-col bg-background text-foreground">
-      {/* 1. Hero Section (DARK & PREMIUM) */}
       <section className="relative min-h-[650px] overflow-hidden bg-slate-950 flex items-center pt-8">
         <div className="absolute inset-0">
-          <Image
-            src="/project-images/jta_work_1.jpg"
-            alt="JTA Advance Painting professional work"
-            fill
-            className="object-cover opacity-20"
-            priority
-            sizes="100vw"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/70 via-slate-950/40 to-slate-950/70" />
           {/* Glowing Paint Splats / Blobs in the Hero Background */}
           <div className="absolute top-1/4 left-1/4 size-80 rounded-full bg-logo-yellow/10 blur-[130px] pointer-events-none" />
           <div className="absolute bottom-1/3 right-1/4 size-96 rounded-full bg-logo-red/10 blur-[140px] pointer-events-none" />
@@ -419,7 +409,7 @@ export default function HomePage() {
               <div className="relative aspect-[4/3] bg-muted overflow-hidden">
                 <Image
                   src="/project-images/commercial_stairwell_repaint.png"
-                  alt="Tampa Commercial Stairwell by JTA Advance Painting"
+                  alt="Tampa Parking Garage Stairwell by JTA Advance Painting"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -430,8 +420,8 @@ export default function HomePage() {
                 </div>
               </div>
               <div className="p-5 flex flex-col gap-2 text-left">
-                <h3 className="font-bold text-base group-hover:text-primary transition-colors">Commercial Stairwell</h3>
-                <p className="text-xs text-slate-500">Heavy-duty, high-traffic commercial repaint for warehouse safety stairwells and walls.</p>
+                <h3 className="font-bold text-base group-hover:text-primary transition-colors">Parking Garage Stairwell</h3>
+                <p className="text-xs text-slate-500">Safety coatings and protective paint applications for a multi-level commercial parking garage structure.</p>
               </div>
             </div>
           </div>
