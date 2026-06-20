@@ -22,7 +22,7 @@ const stats = [
   { value: '15+', label: 'Years Painting Experience' },
   { value: '4+', label: 'Years Serving Tampa Bay' },
   { value: '500+', label: 'Projects Completed' },
-  { value: '4.9★', label: 'Average Rating' },
+  { value: '100%', label: 'Satisfaction Guaranteed' },
 ];
 
 const values = [

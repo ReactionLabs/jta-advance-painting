@@ -124,8 +124,8 @@ const whyChooseUs = [
   },
   {
     icon: Award,
-    title: "5-Star Google Rated",
-    description: "Consistently top-rated for quality and customer satisfaction",
+    title: "Top-Rated Quality",
+    description: "Highly recommended for outstanding workmanship and attention to detail",
   },
   {
     icon: Clock,
@@ -207,7 +207,7 @@ export default function HomePage() {
               <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 backdrop-blur-md">
                 <Sparkles className="size-4 text-primary animate-pulse" />
                 <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                  ⭐⭐⭐⭐⭐ 4.9 Stars on Google
+                  Licensed &amp; Insured Crew
                 </span>
               </div>
               
@@ -301,12 +301,13 @@ export default function HomePage() {
                 Years Serving Tampa Bay
               </p>
             </div>
-            <div className="p-4 last:border-0">
-              <p className="text-4xl font-extrabold text-white">
-                <StatCounter end={4} suffix=".9★" />
+            <div className="p-4 last:border-0 flex flex-col items-center justify-center">
+              <p className="text-3xl font-extrabold text-white flex items-center justify-center gap-2">
+                <ShieldCheck className="size-6 text-logo-green shrink-0" />
+                <span>Licensed</span>
               </p>
               <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">
-                Google Review Rating
+                &amp; Insured Crew
               </p>
             </div>
           </div>

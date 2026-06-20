@@ -125,9 +125,9 @@ const whyChooseUs = [
   },
   {
     icon: Star,
-    title: '5-Star Rated',
+    title: 'Highly Recommended',
     description:
-      'Our customers consistently rate us 5 stars. Read their reviews and see why we\'re the most recommended painter in the area.',
+      'Our customers consistently recommend us for our quality, reliability, and clean jobsites across Tampa Bay.',
   },
   {
     icon: CheckCircle,

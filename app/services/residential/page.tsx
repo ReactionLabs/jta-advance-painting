@@ -78,8 +78,8 @@ const benefits = [
   },
   {
     icon: Star,
-    title: '5-Star Rated',
-    description: 'Consistently high ratings from satisfied customers',
+    title: 'Highly Recommended',
+    description: 'Highly recommended by local homeowners for quality and care',
   },
   {
     icon: TrendingUp,
