@@ -197,18 +197,11 @@ export default function HomePage() {
                 <Image
                   src="/logo.png"
                   alt="JTA Advance Painting Brand Logo"
-                  width={280}
-                  height={88}
-                  className="h-16 md:h-20 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.65)]"
+                  width={340}
+                  height={107}
+                  className="h-20 md:h-24 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.65)]"
                   priority
                 />
-              </div>
-              
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 border border-primary/20 px-4 py-1.5 backdrop-blur-md">
-                <Sparkles className="size-4 text-primary animate-pulse" />
-                <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-                  Licensed &amp; Insured Crew
-                </span>
               </div>
               
               <h1 className="text-4xl font-extrabold tracking-tight text-white sm:text-5xl lg:text-6xl leading-[1.2] drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)] text-left">
