@@ -19,9 +19,9 @@ import { cn } from '@/lib/utils';
 import { PaintBrushStroke, PaintSplatter } from '@/components/ui/PaintDecorations';
 
 const stats = [
-  { value: '15+', label: 'Years Experience' },
+  { value: '15+', label: 'Years Painting Experience' },
+  { value: '4+', label: 'Years Serving Tampa Bay' },
   { value: '500+', label: 'Projects Completed' },
-  { value: '100%', label: 'Customer Satisfaction' },
   { value: '4.9★', label: 'Average Rating' },
 ];
 
@@ -91,9 +91,7 @@ function AboutPage() {
             About JTA Advance Painting
           </h1>
           <p className="text-lg text-white max-w-2xl leading-relaxed">
-            For over 15 years, we&apos;ve been transforming homes and businesses
-            across Tampa Bay with exceptional painting services built on
-            integrity, quality, and customer satisfaction.
+            For over four years, JTA Advance Painting has been proudly serving the Tampa Bay area. Backed by more than 15 years of professional painting experience and over 500 completed projects, we transform homes and businesses with exceptional services built on integrity, quality, and customer satisfaction.
           </p>
         </div>
       </section>
@@ -122,7 +120,7 @@ function AboutPage() {
                   this commitment to excellence.
                 </p>
                 <p>
-                  Today, we&apos;ve completed hundreds of projects—from single-room
+                  Today, we&apos;ve completed over 500 projects—from single-room
                   touch-ups to complete interior/exterior repaints for
                   residential homes and large-scale commercial properties. But
                   no matter the size of the job, we bring the same dedication to

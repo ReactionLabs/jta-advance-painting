@@ -279,10 +279,18 @@ export default function HomePage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             <div className="p-4 border-r border-slate-800 last:border-0">
               <p className="text-4xl font-extrabold text-white">
-                <StatCounter end={107} suffix="+" />
+                <StatCounter end={500} suffix="+" />
               </p>
               <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">
                 Projects Completed
+              </p>
+            </div>
+            <div className="p-4 border-r border-slate-800 last:border-0">
+              <p className="text-4xl font-extrabold text-white">
+                <StatCounter end={15} suffix="+" />
+              </p>
+              <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">
+                Years Painting Experience
               </p>
             </div>
             <div className="p-4 md:border-r border-slate-800 last:border-0">
@@ -290,24 +298,15 @@ export default function HomePage() {
                 <StatCounter end={4} suffix="+" />
               </p>
               <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">
-                Years Experience
+                Years Serving Tampa Bay
               </p>
             </div>
-            <div className="p-4 border-r border-slate-800 last:border-0">
+            <div className="p-4 last:border-0">
               <p className="text-4xl font-extrabold text-white">
                 <StatCounter end={4} suffix=".9★" />
               </p>
               <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">
                 Google Review Rating
-              </p>
-            </div>
-            <div className="p-4 last:border-0 flex flex-col items-center justify-center">
-              <p className="text-3xl font-extrabold text-white flex items-center justify-center gap-2">
-                <ShieldCheck className="size-6 text-logo-green shrink-0" />
-                <span>Licensed</span>
-              </p>
-              <p className="text-xs font-medium text-slate-400 mt-1 uppercase tracking-wider">
-                &amp; Insured Crew
               </p>
             </div>
           </div>
