@@ -5,13 +5,14 @@ import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
+import axios from 'axios';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
-import { MapPin, Phone, Mail, CheckCircle, Sparkles } from 'lucide-react';
+import { MapPin, Phone, Mail, CheckCircle, Sparkles, AlertCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { PaintBrushStroke, PaintSplatter } from '@/components/ui/PaintDecorations';
 
@@ -27,6 +28,7 @@ type FormData = z.infer<typeof formSchema>;
 export default function ContactPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   const {
     register,
@@ -39,12 +41,28 @@ export default function ContactPage() {
 
   const onSubmit = async (data: FormData) => {
     setIsSubmitting(true);
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log('Form submitted:', { ...data, submittedAt: new Date().toISOString() });
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    reset();
-    setTimeout(() => setIsSuccess(false), 5000);
+    setIsSuccess(false);
+    setIsError(false);
+    try {
+      const response = await axios.post(
+        process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || '',
+        data
+      );
+      if (response.status === 200 || response.data?.ok) {
+        setIsSuccess(true);
+        reset();
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        setIsError(true);
+        setTimeout(() => setIsError(false), 5000);
+      }
+    } catch (error) {
+      console.error('Error submitting form to Formspree:', error);
+      setIsError(true);
+      setTimeout(() => setIsError(false), 5000);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -229,6 +247,15 @@ export default function ContactPage() {
                         <CheckCircle className="size-5 text-green-600 shrink-0" aria-hidden="true" />
                         <p className="text-green-800 font-semibold text-sm">
                           Message sent! We&apos;ll be in touch within 24 hours.
+                        </p>
+                      </div>
+                    )}
+
+                    {isError && (
+                      <div className="p-4 bg-red-50 border border-red-200 rounded-xl flex items-center gap-3">
+                        <AlertCircle className="size-5 text-destructive shrink-0" aria-hidden="true" />
+                        <p className="text-destructive font-semibold text-sm">
+                          Failed to send message. Please try again or call us directly.
                         </p>
                       </div>
                     )}
