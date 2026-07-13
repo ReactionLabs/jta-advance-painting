@@ -45,7 +45,7 @@ export default function ContactPage() {
     setIsError(false);
     try {
       const response = await axios.post(
-        process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || '',
+        process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xpqvzyqk',
         data
       );
       if (response.status === 200 || response.data?.ok) {
