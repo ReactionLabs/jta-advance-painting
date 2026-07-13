@@ -44,11 +44,18 @@ export default function ContactPage() {
     setIsSuccess(false);
     setIsError(false);
     try {
-      const response = await axios.post(
+      const response = await fetch(
         process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT || 'https://formspree.io/f/xpqvzyqk',
-        data
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify(data),
+        }
       );
-      if (response.status === 200 || response.data?.ok) {
+      if (response.ok) {
         setIsSuccess(true);
         reset();
         setTimeout(() => setIsSuccess(false), 5000);
