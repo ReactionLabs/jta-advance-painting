@@ -44,13 +44,8 @@ export default function ContactPage() {
     setIsSuccess(false);
     setIsError(false);
     try {
-      const endpoint = process.env.NEXT_PUBLIC_FORMSPREE_ENDPOINT;
-      const url = (endpoint && endpoint.trim().startsWith('http'))
-        ? endpoint.trim()
-        : 'https://formspree.io/f/xpqvzyqk';
-
       const response = await fetch(
-        url,
+        'https://formspree.io/f/xpqvzyqk',
         {
           method: 'POST',
           headers: {
