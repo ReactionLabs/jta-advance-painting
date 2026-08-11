@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { Mail, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { PaintDrips } from "@/components/ui/PaintDecorations";
 
 const services = [
   { href: "/services/interior", label: "Interior Painting" },
@@ -45,7 +44,7 @@ const contactInfo = [
 function Footer() {
   return (
     <footer className="relative bg-muted/50 mt-16 md:mt-24">
-      <PaintDrips className="absolute top-0 left-0 w-full -translate-y-[98%] z-10" />
+      {/* PaintDrips removed per client request */}
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         {/* Main Footer Content */}
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">

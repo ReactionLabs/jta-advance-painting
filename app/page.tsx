@@ -238,12 +238,12 @@ export default function HomePage() {
 
             {/* Right Column: Large project photo */}
             <div className="lg:col-span-5 flex justify-center w-full">
-              <div className="relative w-full max-w-md lg:max-w-none aspect-[4/3] sm:aspect-[1.4] lg:aspect-[1.1] rounded-[2.5rem] overflow-hidden border border-slate-800/80 shadow-2xl bg-slate-950 group">
+              <div className="relative w-full max-w-md lg:max-w-none h-[320px] sm:h-[380px] lg:h-[420px] rounded-[2.5rem] overflow-hidden border border-slate-800/80 shadow-2xl bg-slate-950 group">
                 <Image
                   src="/project-images/exterior_repaint_hero.png"
                   alt="Beautiful Exterior Repaint Tampa"
                   fill
-                  className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                  className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
                   priority
                   sizes="(max-width: 1024px) 100vw, 40vw"
                 />
