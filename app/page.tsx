@@ -334,19 +334,19 @@ export default function HomePage() {
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {/* Card 1: Brandon */}
+            {/* Card 1: Tampa/Ybor */}
             <div className="group flex flex-col bg-white border border-slate-200/80 rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
               <div className="relative aspect-[4/3] bg-muted overflow-hidden">
                 <Image
                   src="/project-images/jta_work_6.jpg"
-                  alt="Brandon Exterior Repaint by JTA Advance Painting"
+                  alt="Tampa/Ybor Parking Garage by JTA Advance Painting"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
                 <div className="absolute top-3 left-3 bg-slate-950/80 backdrop-blur-sm text-white text-[10px] font-bold px-2.5 py-1 rounded-md border border-slate-800 flex items-center gap-1">
                   <MapPin className="size-3 text-logo-red" />
-                  <span>Brandon</span>
+                  <span>Tampa/Ybor</span>
                 </div>
               </div>
               <div className="p-5 flex flex-col gap-2 text-left">
