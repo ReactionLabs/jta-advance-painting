@@ -172,6 +172,11 @@ export default function RootLayout({
           strategy="afterInteractive"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
+        <script
+          src="https://forms.secondshift.site/t.js"
+          data-client="jta-advance-painting"
+          async
+        />
       </head>
       <body
         className={`${sora.variable} flex min-h-full flex-col antialiased font-sans pb-16 md:pb-0`}
