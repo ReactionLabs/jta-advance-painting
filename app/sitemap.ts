@@ -12,6 +12,8 @@ const PAGES: Array<{
   { path: "/services", changeFrequency: "monthly", priority: 0.9 },
   { path: "/services/residential", changeFrequency: "monthly", priority: 0.8 },
   { path: "/services/commercial", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/services/interior", changeFrequency: "monthly", priority: 0.8 },
+  { path: "/services/exterior", changeFrequency: "monthly", priority: 0.8 },
   { path: "/gallery", changeFrequency: "monthly", priority: 0.7 },
   { path: "/testimonials", changeFrequency: "monthly", priority: 0.6 },
   { path: "/contact", changeFrequency: "monthly", priority: 0.7 },
