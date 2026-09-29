@@ -74,6 +74,7 @@ export default function ContactPage() {
 
   return (
     <div className="flex flex-col bg-background text-foreground">
+      <link rel="canonical" href="https://jtaadvancepainting.com/contact" />
       {/* Hero Section (Centered & Premium) */}
       <section className="relative h-[450px] flex items-center justify-center bg-slate-950">
         <div className="absolute inset-0">
