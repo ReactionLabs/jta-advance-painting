@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 export default function TestimonialsPage() {
   return (
     <div className="flex flex-col bg-background text-foreground">
+      <link rel="canonical" href="https://jtaadvancepainting.com/testimonials" />
       {/* Hero Section */}
       <section className="relative h-[380px] flex items-center justify-center bg-slate-950">
         <div className="absolute inset-0">
