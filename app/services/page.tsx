@@ -18,6 +18,15 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Our Services",
+  description:
+    "Interior, exterior, residential, commercial, and cabinet painting plus pressure washing for Tampa Bay homes, businesses, and HOAs. Free estimates.",
+  alternates: { canonical: "/services" },
+};
 import { PaintBrushStroke, PaintSplatter } from '@/components/ui/PaintDecorations';
 
 const mainServices = [
