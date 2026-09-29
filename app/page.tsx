@@ -177,6 +177,45 @@ const testimonials = [
   },
 ];
 
+
+// SEO: visible FAQ section + matching FAQPage schema
+const FAQS = [
+  {
+    q: "Do you offer free estimates?",
+    a: "Yes. Request an estimate online or call 813-392-8301. Our process starts with your request, then an on-site visit where we evaluate surfaces and measure your space.",
+  },
+  {
+    q: "Are you licensed and insured?",
+    a: "Yes. JTA Advance Painting is fully licensed and insured, and every project ends with a final walkthrough inspection to confirm flawless results.",
+  },
+  {
+    q: "What areas do you serve?",
+    a: "We serve the Tampa Bay area across Hillsborough, Pinellas, and Pasco counties, including Tampa, Brandon, Riverview, Wesley Chapel, Lutz, Land O Lakes, Odessa, and St. Petersburg.",
+  },
+  {
+    q: "What painting services do you offer?",
+    a: "Interior painting, exterior painting, residential painting, commercial painting, cabinet painting, and pressure washing, plus painting for HOA communities, property management companies, and contractors.",
+  },
+  {
+    q: "How does your process work?",
+    a: "Five steps: request an estimate, on-site visit, a written itemized quote, scheduled project dates, and a final walkthrough inspection.",
+  },
+  {
+    q: "Do you work with businesses and HOAs?",
+    a: "Yes. Our commercial painting is scheduled around your business to minimize disruption, and we serve HOA communities, property managers, and contractors across Tampa Bay.",
+  },
+];
+
+const faqJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: { "@type": "Answer", text: f.a },
+  })),
+};
+
 export default function HomePage() {
   return (
     <div className="flex flex-col bg-background text-foreground">
@@ -902,6 +941,40 @@ export default function HomePage() {
         </div>
       </section>
       */}
+
+
+      {/* SEO: FAQ Section */}
+      <section className="px-4 py-24 sm:px-6 lg:px-8 bg-background border-t border-slate-100">
+        <div className="mx-auto max-w-3xl">
+          <div className="text-center">
+            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">
+              Frequently Asked Questions
+            </h2>
+            <p className="mt-4 text-lg text-muted-foreground">
+              The questions Tampa Bay homeowners and businesses ask us most.
+            </p>
+          </div>
+          <div className="mt-10 divide-y divide-slate-200 rounded-2xl border border-slate-200 bg-white px-6 shadow-sm">
+            {FAQS.map((f) => (
+              <details key={f.q} className="group py-5">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-semibold text-slate-900">
+                  {f.q}
+                  <span className="shrink-0 text-xl leading-none text-slate-400 transition-transform group-open:rotate-45">
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+                  {f.a}
+                </p>
+              </details>
+            ))}
+          </div>
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+          />
+        </div>
+      </section>
 
       {/* 9. Final CTA Section (VIBRANT GLOWING GRADIENT CANVAS) */}
       <section className="relative overflow-hidden px-4 py-24 sm:px-6 lg:px-8 rounded-3xl mx-4 my-8 shadow-2xl">
