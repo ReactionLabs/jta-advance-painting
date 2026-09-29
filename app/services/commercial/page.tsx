@@ -105,6 +105,7 @@ const testimonials = [
 export default function CommercialPage() {
   return (
     <div className="flex flex-col">
+      <link rel="canonical" href="https://jtaadvancepainting.com/services/commercial" />
       {/* Hero */}
       <section className="relative h-[500px]">
         <Image
