@@ -214,6 +214,7 @@ export default function GalleryPage() {
 
   return (
     <div className={cn("flex flex-col bg-background text-foreground transition-opacity duration-500", isLoaded ? 'opacity-100' : 'opacity-0')}>
+      <link rel="canonical" href="https://jtaadvancepainting.com/gallery" />
       {/* Hero Section (Centered & Premium) */}
       <section className="relative h-[380px] flex items-center justify-center bg-slate-950">
         <div className="absolute inset-0">
