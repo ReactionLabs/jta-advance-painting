@@ -18,6 +18,15 @@ import Link from 'next/link';
 import { cn } from '@/lib/utils';
 import { PaintBrushStroke, PaintSplatter } from '@/components/ui/PaintDecorations';
 
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "About Us",
+  description:
+    "Learn about JTA Advance Painting LLC, a licensed and insured painting contractor serving Tampa Bay homes, businesses, and HOA communities.",
+  alternates: { canonical: "/about" },
+};
+
 const stats = [
   { value: '15+', label: 'Years Painting Experience' },
   { value: '4+', label: 'Years Serving Tampa Bay' },
