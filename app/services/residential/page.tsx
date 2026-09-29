@@ -150,6 +150,7 @@ const testimonials = [
 export default function ResidentialPage() {
   return (
     <div className="flex flex-col">
+      <link rel="canonical" href="https://jtaadvancepainting.com/services/residential" />
       {/* Hero */}
       <section className="relative h-[500px]">
         <Image
