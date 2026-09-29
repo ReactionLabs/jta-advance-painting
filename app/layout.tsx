@@ -32,6 +32,9 @@ export const metadata: Metadata = {
     "Tampa Bay painters",
   ],
   authors: [{ name: "JTA Advance Painting LLC" }],
+  alternates: {
+    canonical: "/",
+  },
   icons: {
     icon: "/icon.png",
     shortcut: "/favicon.ico",
@@ -68,7 +71,7 @@ const schema = {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "LocalBusiness",
+      "@type": "HomeAndConstructionBusiness",
       "@id": "https://jtaadvancepainting.com/#business",
       name: "JTA Advance Painting LLC",
       description:
