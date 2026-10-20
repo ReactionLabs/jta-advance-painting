@@ -45,7 +45,7 @@ export default function ContactPage() {
     setIsError(false);
     try {
       const response = await fetch(
-        'https://formspree.io/f/xpqvzyqk',
+        '/api/contact',
         {
           method: 'POST',
           headers: {
@@ -64,7 +64,7 @@ export default function ContactPage() {
         setTimeout(() => setIsError(false), 5000);
       }
     } catch (error) {
-      console.error('Error submitting form to Formspree:', error);
+      console.error('Error submitting form:', error);
       setIsError(true);
       setTimeout(() => setIsError(false), 5000);
     } finally {
